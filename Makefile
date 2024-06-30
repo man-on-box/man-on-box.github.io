@@ -5,6 +5,4 @@ dev:
 
 build:
 	@echo "Building for prod"
-	@templ generate
-	@npx tailwind -i ./style/main.css -o ./dist/main.css
 	APP_ENV="pro" go run cmd/main.go

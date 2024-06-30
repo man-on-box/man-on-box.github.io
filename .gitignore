@@ -9,5 +9,3 @@ node_modules
 static/**/**.css*
 tmp
 
-# Templ
-*_templ*
