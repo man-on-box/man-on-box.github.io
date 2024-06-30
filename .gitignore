@@ -1,0 +1,13 @@
+.DS_Store
+build
+dist
+node_modules
+.eslintcache
+.idea
+
+# Ignore compiled CSS, it is created at build time
+static/**/**.css*
+tmp
+
+# Templ
+*_templ*
