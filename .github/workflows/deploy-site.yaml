@@ -25,7 +25,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      # Setup Go project and build HTML pages
+
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
@@ -34,18 +34,17 @@ jobs:
         run: |
           go mod tidy
           go mod download
-      - name: Build pages
-        run: make build
 
-      # Setup Node and build tailwind css
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
       - name: Install npm dependencies
         run: npm ci
-      - name: Build styles
-        run: make build-styles
+
+      # Build artifacts and upload
+      - name: Build pages and styles
+        run: make build
       - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
