@@ -10,10 +10,19 @@ import (
 	"github.com/man-on-box/man-on-box.github.io/view"
 )
 
-func main() {
-	env := os.Getenv("APP_ENV")
-	f, err := os.Create("dist/index.html")
+const (
+	envVar  = "APP_ENV"
+	distDir = "dist"
+)
 
+func main() {
+	env := os.Getenv(envVar)
+
+	if err := os.MkdirAll(distDir, os.ModePerm); err != nil {
+		log.Fatalf("Could not create destination directory: %v", err)
+	}
+
+	f, err := os.Create(distDir + "/index.html")
 	if err != nil {
 		log.Fatalf("Could not create file: %v", err)
 	}
