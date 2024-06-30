@@ -35,6 +35,11 @@ jobs:
           go mod download
       - name: Build
         run: make build
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          name: "github-pages"
+          path: "dist/"
   styles:
     runs-on: ubuntu-latest
     needs: build
@@ -52,6 +57,7 @@ jobs:
       - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          name: "github-styles"
           path: "dist/"
   deploy:
     environment:
