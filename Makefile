@@ -1,6 +1,6 @@
 dev:
 	@echo "Starting dev mode"
-	APP_ENV="dev" air & \
+	APP_ENV="pre" air & \
 		npx tailwind -i ./style/main.css -o ./dist/main.css --watch
 
 build:
