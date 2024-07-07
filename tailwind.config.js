@@ -1,7 +1,10 @@
 module.exports = {
   content: ["./**/*.html"],
   theme: {
-    extend: {},
+    fontFamily: {
+      sans: ["Wittgenstein", "sans-serif"],
+      serif: ["Wittgenstein", "serif"],
+    },
   },
   plugins: [],
 };
