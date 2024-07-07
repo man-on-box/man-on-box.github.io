@@ -1,6 +1,7 @@
 package view
 
 import (
+	"html/template"
 	"io"
 	"log"
 	"os"
@@ -12,9 +13,18 @@ type Static struct {
 }
 
 func (s *Static) Generate() {
+	tmpl := parseTemplates()
 	s.copyPublicDir()
 
-	s.pageIndex()
+	s.pageIndex(tmpl)
+}
+
+func parseTemplates() *template.Template {
+	tmpl, err := template.New("").ParseGlob("./view/templates/*.html")
+	if err != nil {
+		log.Fatalf("Error parsing templates: %v", err)
+	}
+	return tmpl
 }
 
 func (s *Static) copyPublicDir() {

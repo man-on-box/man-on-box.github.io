@@ -1,4 +1,5 @@
-{{ block "body" .}}
+{{ define "homepage" }} {{ template "header" . }}
+
 <div class="bg-slate-950 text-slate-50 p-16">
   <section class="container mx-auto">
     <div class="flex gap-10 flex-col md:flex-row max-w-prose mx-auto">
@@ -22,7 +23,7 @@
       <strong>Nice to meet you.</strong> I'm a passionate, user-centric,
       product-focused software engineer specializing in frontend development.
     </p>
-    <p class="text-xl">
+    <p class="text-xl mb-8">
       I'm currently working at
       <a class="underline" href="https://adevinta.com/" target="_blank"
         >Adevinta</a
@@ -30,6 +31,30 @@
       as a Lead Frontend Engineer, building the UI and data visualization tools
       for their experimentation platform.
     </p>
+    <p class="text-xl font-bold">
+      I take pride in building end-to-end solutions through close collaboration,
+      with a strong focus on user experience and functionality.
+    </p>
   </section>
 </div>
-{{ end }}
+<div class="bg-slate-950 text-slate-50 p-16">
+  <section class="container mx-auto">
+    <h3 class="text-3xl mb-8">Skills</h3>
+    <h4 class="text-2xl mb-5">Frontend</h4>
+    <div class="flex flex-wrap gap-4">
+      <div
+        class="border-4 border-pink-900 text-white text-center min-w-48 rounded-md px-4 py-6"
+      >
+        <span class="block text-pink-600 mb-8 text-5xl">&lt;/&gt;</span>
+        <span class="text-xl">Typescript</span>
+      </div>
+      <div
+        class="border-4 border-pink-900 text-white text-center min-w-48 rounded-md px-4 py-6"
+      >
+        <span class="block text-pink-600 mb-8 text-5xl">JS</span>
+        <span class="text-xl">Javascript</span>
+      </div>
+    </div>
+  </section>
+</div>
+{{ template "footer" . }} {{ end }}
