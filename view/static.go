@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"time"
 )
 
 type Static struct {
@@ -20,7 +21,9 @@ func (s *Static) Generate() {
 }
 
 func parseTemplates() *template.Template {
-	tmpl, err := template.New("").ParseGlob("./view/templates/*.html")
+	tmpl, err := template.New("").Funcs(template.FuncMap{
+		"currentYear": currentYear,
+	}).ParseGlob("./view/templates/*.html")
 	if err != nil {
 		log.Fatalf("Error parsing templates: %v", err)
 	}
@@ -39,6 +42,10 @@ func (s *Static) createFile(fileName string) *os.File {
 		log.Fatalf("Could not create file: %v", err)
 	}
 	return f
+}
+
+func currentYear() int {
+	return time.Now().Year()
 }
 
 func copyFile(src string, dst string) error {

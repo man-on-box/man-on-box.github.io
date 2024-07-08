@@ -40,21 +40,40 @@
 <div class="bg-slate-950 text-slate-50 p-16">
   <section class="container mx-auto">
     <h3 class="font-bold text-3xl mb-8">Skills</h3>
-    <h4 class="text-2xl mb-5">Frontend</h4>
-    <div class="flex flex-wrap gap-4">
+    {{ range .Skills}} {{ $color := .Color }}
+
+    <h4 class="text-2xl my-8">{{ .Title }}</h4>
+    <div class="flex lg:flex-wrap pb-10 overflow-x-auto gap-4">
+      {{ range .Items }}
       <div
-        class="border-4 border-pink-900 text-white text-center min-w-40 rounded-md px-4 py-6"
+        class="flex-none border-2 border-{{ $color }}-800 shadow-2xl shadow-{{ $color }}-800/40 text-white text-center w-40 rounded-sm px-4 py-6"
       >
-        <span class="block text-pink-600 mb-8 text-3xl">&lt;/&gt;</span>
-        <span class="text-xl">Typescript</span>
+        <span class="block text-{{ $color }}-600 font-bold mb-8 text-3xl"
+          >{{ .Badge }}</span
+        >
+        <span class="text-xl">{{ .Label }}</span>
       </div>
-      <div
-        class="border-4 border-pink-900 text-white text-center min-w-40 rounded-md px-4 py-6"
-      >
-        <span class="block text-pink-600 mb-8 text-3xl">JS</span>
-        <span class="text-xl">Javascript</span>
-      </div>
+
+      {{ end }}
     </div>
+
+    {{ end }}
   </section>
 </div>
+<div class="bg-slate-50 text-slate-950 p-16">
+  <section class="container mx-auto max-w-prose">
+    <p class="text-xl mb-8">
+      <strong>If you'd like to get in touch,</strong> either to say hi or to
+      find out more, feel free to reach out to me on:
+    </p>
+    <ul class="list-disc text-xl mb-8">
+      {{ range .Contact }}
+      <li>
+        <a class="underline" href="{{ .Link }}" target="_blank">{{ .Label }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+</div>
+
 {{ template "footer" . }} {{ end }}
