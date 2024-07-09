@@ -112,6 +112,14 @@ func (s *Static) pageIndex(tmpl *template.Template) {
 				Description: []string{
 					"Joined as a Windows Server engineer and quickly moved into the Disaster Recovery team. I was responsible for the design and implementation of the disaster recovery solutions for the company's clients. I also managed the team and the day to day operations of the department.",
 				},
+			}, {
+				Title:    "Technical Support Analyst",
+				Company:  "NorthgateArinso",
+				Date:     "2008 - 2013",
+				Location: "Manchester, UK",
+				Description: []string{
+					"Providing 1st to 3rd line technical support.",
+				},
 			},
 		},
 	}
