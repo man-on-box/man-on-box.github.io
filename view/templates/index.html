@@ -37,16 +37,19 @@
     </p>
   </section>
 </div>
-<div class="bg-slate-950 text-slate-50 p-16">
-  <section class="container mx-auto">
+<div class="bg-slate-950 text-slate-50 p-16 overflow-hidden">
+  <section class="container mx-auto max-w-5xl overflow-visible">
     <h3 class="font-bold text-3xl mb-8">Skills</h3>
+    <p>These are not exhaustive lists, but gives an idea of my profile.</p>
     {{ range .Skills}} {{ $color := .Color }}
 
     <h4 class="text-2xl my-8">{{ .Title }}</h4>
-    <div class="flex lg:flex-wrap pb-10 overflow-x-auto gap-4">
+    <div
+      class="flex lg:flex-wrap pb-10 lg:overflow-visible lg:w-full w-screen pr-36 lg:pr-0 overflow-x-auto snap-x gap-4"
+    >
       {{ range .Items }}
       <div
-        class="flex-none border-2 border-{{ $color }}-800 shadow-2xl shadow-{{ $color }}-800/40 text-white text-center w-40 rounded-sm px-4 py-6"
+        class="flex-none border-2 border-{{ $color }}-800 hover:border-{{ $color }}-500 shadow-2xl shadow-{{ $color }}-800/60 hover:shadow-{{ $color }}-800 transition text-white text-center w-40 rounded-sm px-4 py-6 snap-start scroll-m-6"
       >
         <span class="block text-{{ $color }}-600 font-bold mb-8 text-3xl"
           >{{ .Badge }}</span
