@@ -17,33 +17,33 @@
     </div>
   </section>
 </div>
-<div class="bg-slate-50 text-slate-950 p-16">
-  <section class="container mx-auto max-w-prose">
-    <p class="text-xl mb-8">
+<div class="bg-slate-50 p-16">
+  <section class="container mx-auto max-w-prose prose prose-xl">
+    <p>
       <strong>Nice to meet you.</strong> I'm a passionate, user-centric,
       product-focused software engineer specializing in frontend development.
     </p>
-    <p class="text-xl mb-8">
+    <p>
       I'm currently working at
-      <a class="underline" href="https://adevinta.com/" target="_blank"
-        >Adevinta</a
-      >
+      <a href="https://adevinta.com/" target="_blank">Adevinta</a>
       as a Lead Frontend Engineer, building the UI and data visualization tools
       for their experimentation platform.
     </p>
-    <p class="text-xl font-bold">
+    <p>
       I take pride in building end-to-end solutions through close collaboration,
       with a strong focus on user experience and functionality.
     </p>
   </section>
 </div>
-<div class="bg-slate-950 text-slate-50 p-16 overflow-hidden">
-  <section class="container mx-auto max-w-5xl overflow-visible">
-    <h3 class="font-bold text-3xl mb-8">Skills</h3>
-    <p>These are not exhaustive lists, but gives an idea of my profile.</p>
+<div id="skills" class="bg-slate-950 p-16 overflow-hidden">
+  <section
+    class="container mx-auto max-w-5xl overflow-visible prose prose-invert prose-xl"
+  >
+    <h2>Skills</h2>
+    <p>These are not exhaustive lists, but give an idea of my profile.</p>
     {{ range .Skills}} {{ $color := .Color }}
 
-    <h4 class="text-2xl my-8">{{ .Title }}</h4>
+    <h3>{{ .Title }}</h3>
     <div
       class="flex lg:flex-wrap pb-10 lg:overflow-visible lg:w-full w-screen pr-36 lg:pr-0 overflow-x-auto snap-x gap-4"
     >
@@ -63,16 +63,27 @@
     {{ end }}
   </section>
 </div>
-<div class="bg-slate-50 text-slate-950 p-16">
-  <section class="container mx-auto max-w-prose">
-    <p class="text-xl mb-8">
+<div class="bg-slate-50 p-16">
+  <section class="container mx-auto max-w-prose prose prose-xl">
+    <h2>Experience</h2>
+    {{ range .Experience }}
+    <h3 class="mb-0">{{ .Title }}</h3>
+    <p class="m-0 text-slate-700">{{ .Company }}</p>
+    <p class="m-0 text-sm text-slate-700">{{ .Date }}</p>
+    <p class="m-0 text-sm text-slate-700">{{ .Location }}</p>
+    {{ range .Description }}
+    <p>{{ . }}</p>
+    {{ end }}
+    <hr />
+    {{ end }}
+    <p>
       <strong>If you'd like to get in touch,</strong> either to say hi or to
       find out more, feel free to reach out to me on:
     </p>
-    <ul class="list-disc text-xl mb-8">
+    <ul>
       {{ range .Contact }}
       <li>
-        <a class="underline" href="{{ .Link }}" target="_blank">{{ .Label }}</a>
+        <a href="{{ .Link }}" target="_blank">{{ .Label }}</a>
       </li>
       {{ end }}
     </ul>

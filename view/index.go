@@ -21,10 +21,19 @@ type contact struct {
 	Label string
 }
 
+type job struct {
+	Title       string
+	Company     string
+	Date        string
+	Location    string
+	Description []string
+}
+
 type pageData struct {
-	Title   string
-	Skills  []skill
-	Contact []contact
+	Title      string
+	Skills     []skill
+	Experience []job
+	Contact    []contact
 }
 
 func (s *Static) pageIndex(tmpl *template.Template) {
@@ -74,6 +83,34 @@ func (s *Static) pageIndex(tmpl *template.Template) {
 					{Label: "Travis", Badge: "{ }"},
 					{Label: "Docker", Badge: "{ }"},
 					{Label: "Kubernetes", Badge: "{ }"},
+				},
+			},
+		},
+		Experience: []job{
+			{
+				Title:    "Lead Frontend Developer",
+				Company:  "Adevinta",
+				Date:     "2019 - Present",
+				Location: "Barcelona, Spain",
+				Description: []string{
+					"Leading the frontend initiative to evolve and build the custom built experimentation platform.",
+				},
+			}, {
+				Title:    "Web Developer",
+				Company:  "Discerning Digital",
+				Date:     "2017 - 2019",
+				Location: "Manchester, UK",
+				Description: []string{
+					"Working on a variety of projects from small brochure sites to large scale web applications. As well, managing the hosting infrastructure for the company and implementing continuous deployment and testing methodologies.",
+				},
+			},
+			{
+				Title:    "Head of Disaster Recovery",
+				Company:  "UKFast",
+				Date:     "2013 - 2017",
+				Location: "Manchester, UK",
+				Description: []string{
+					"Joined as a Windows Server engineer and quickly moved into the Disaster Recovery team. I was responsible for the design and implementation of the disaster recovery solutions for the company's clients. I also managed the team and the day to day operations of the department.",
 				},
 			},
 		},

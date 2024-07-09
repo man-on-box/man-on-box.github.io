@@ -6,5 +6,5 @@ module.exports = {
       serif: ["Wittgenstein", "serif"],
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
