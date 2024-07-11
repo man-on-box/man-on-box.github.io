@@ -1,0 +1,11 @@
+{{ define "about" }} {{ template "header" .Page }} {{ template "hero" }}
+<div class="bg-slate-50 p-16">
+  <section class="container mx-auto max-w-prose prose prose-xl">
+    <h2>About</h2>
+    <p>I'm a self taught developer, from Manchester, UK</p>
+    <p>From a young age, I loved lego's.</p>
+    <hr />
+    {{ template "contact" .Page.Contact }}
+  </section>
+</div>
+{{ template "footer" . }} {{ end }}

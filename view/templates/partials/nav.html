@@ -1,0 +1,58 @@
+{{ define "nav" }}
+<nav
+  id="nav-menu"
+  class="hidden bg-slate-950 text-slate-50 border-b fixed w-svw p-20 text-2xl"
+>
+  <div class="mx-auto flex gap-20">
+    <img
+      src="/img/man-on-box-circle.svg"
+      alt="Man on box"
+      class="hidden md:block"
+    />
+    <div class="flex flex-col gap-8 border-l-2 border-l-slate-700 pl-5">
+      {{ range . }}
+
+      <a class="nav-link hover:underline font-bold" href="{{ .Url }}"
+        >{{ .Label }}</a
+      >
+      {{ end }}
+    </div>
+  </div>
+</nav>
+
+<button
+  id="nav-btn"
+  type="button"
+  aria-label="Open navigation menu"
+  class="bg-slate-950 hover:bg-pink-600 transition cursor-pointer fixed top-5 right-5 lg:right-20 2xl:right-36 h-16 w-16 rounded-full flex justify-center items-center"
+>
+  <div class="flex flex-col gap-1 w-6">
+    <span class="block h-1 bg-slate-50 rounded"></span>
+    <span class="block h-1 bg-slate-50 rounded"></span>
+    <span class="block h-1 bg-slate-50 rounded"></span>
+  </div>
+</button>
+
+<script>
+  (function () {
+    const navBtn = document.getElementById("nav-btn");
+    const navMenu = document.getElementById("nav-menu");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    navBtn.addEventListener("click", () => {
+      toggleNav();
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        toggleNav();
+      });
+    });
+
+    function toggleNav() {
+      navMenu.classList.toggle("hidden");
+      navMenu.classList.toggle("flex");
+    }
+  })();
+</script>
+{{ end }}

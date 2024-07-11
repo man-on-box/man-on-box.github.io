@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="title" content="{{ .Title }}" />
     <meta name="image" content="https://man-on-box.github.io/img/social.png" />
-    <meta
-      name="description"
-      content="Hey I'm Oli, user-centric and product focused software engineer."
-    />
+    <meta name="description" content="{{ .Desc }}" />
     <link href="/main.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -22,7 +19,7 @@
     <title>{{.Title}}</title>
   </head>
   <body>
-    {{ end }}
+    {{ template "nav" .Nav}} {{ end }}
 
     <!-- .. -->
     {{ define "footer" }}

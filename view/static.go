@@ -18,12 +18,13 @@ func (s *Static) Generate() {
 	s.copyPublicDir()
 
 	s.pageIndex(tmpl)
+	s.pageAbout(tmpl)
 }
 
 func parseTemplates() *template.Template {
 	tmpl, err := template.New("").Funcs(template.FuncMap{
 		"currentYear": currentYear,
-	}).ParseGlob("./view/templates/*.html")
+	}).ParseGlob("./view/templates/**/*.html")
 	if err != nil {
 		log.Fatalf("Error parsing templates: %v", err)
 	}

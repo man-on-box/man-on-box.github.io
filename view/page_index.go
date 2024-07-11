@@ -16,11 +16,6 @@ type skill struct {
 	Items []item
 }
 
-type contact struct {
-	Link  string
-	Label string
-}
-
 type job struct {
 	Title       string
 	Company     string
@@ -29,20 +24,20 @@ type job struct {
 	Description []string
 }
 
-type pageData struct {
-	Title      string
+type indexData struct {
+	Page       page
 	Skills     []skill
 	Experience []job
-	Contact    []contact
 }
 
 func (s *Static) pageIndex(tmpl *template.Template) {
 
-	page := pageData{
-		Title: "Man on Box",
-		Contact: []contact{
-			{Label: "LinkedIn", Link: "https://www.linkedin.com/in/oliver-hughes-m880/"},
-			{Label: "Github", Link: "https://github.com/man-on-box"},
+	data := indexData{
+		Page: page{
+			Title:   "Hey, I'm Oli",
+			Contact: Contact,
+			Nav:     NavLinks,
+			Desc:    "Hey I'm Oli, user-centric and product focused software engineer.",
 		},
 		Skills: []skill{
 			{
@@ -53,6 +48,7 @@ func (s *Static) pageIndex(tmpl *template.Template) {
 					{Label: "Typescript", Badge: "TS"},
 					{Label: "React", Badge: "</>"},
 					{Label: "Astro", Badge: "</>"},
+					{Label: "HTMX", Badge: "</>"},
 					{Label: "Vite", Badge: "{ }"},
 					{Label: "Webpack", Badge: "{ }"},
 					{Label: "Tailwind", Badge: "{ }"},
@@ -125,7 +121,7 @@ func (s *Static) pageIndex(tmpl *template.Template) {
 	}
 
 	f := s.createFile("/index.html")
-	if err := tmpl.ExecuteTemplate(f, "homepage", page); err != nil {
+	if err := tmpl.ExecuteTemplate(f, "homepage", data); err != nil {
 		log.Fatalf("Error executing template: %v", err)
 	}
 

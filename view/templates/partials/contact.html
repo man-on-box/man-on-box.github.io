@@ -1,0 +1,15 @@
+{{ define "contact" }}
+<div id="contact">
+  <p>
+    <strong>If you'd like to get in touch,</strong> either to say hi or to find
+    out more, feel free to reach out to me on:
+  </p>
+  <ul>
+    {{ range .}}
+    <li>
+      <a href="{{ .Url }}" target="_blank">{{ .Label }}</a>
+    </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

@@ -1,22 +1,4 @@
-{{ define "homepage" }} {{ template "header" . }}
-
-<div class="bg-slate-950 text-slate-50 p-16">
-  <section class="container mx-auto">
-    <div class="flex gap-10 flex-col md:flex-row max-w-prose mx-auto">
-      <img
-        src="/img/man-on-box-circle.svg"
-        alt="Man on box"
-        class="justify-self-end max-h-52"
-      />
-      <div class="text-center md:text-left">
-        <h1 class="text-5xl font-bold my-8">Hey, I'm Oli 👋</h1>
-        <h2 class="text-2xl my-8">
-          user-centric and product-focused software engineer
-        </h2>
-      </div>
-    </div>
-  </section>
-</div>
+{{ define "homepage" }} {{ template "header" .Page }} {{ template "hero" }}
 <div class="bg-slate-50 p-16">
   <section class="container mx-auto max-w-prose prose prose-xl">
     <p>
@@ -30,8 +12,11 @@
       for their experimentation platform.
     </p>
     <p>
-      I take pride in building end-to-end solutions through close collaboration,
-      with a strong focus on user experience and functionality.
+      <strong>
+        I take pride in building end-to-end solutions through close
+        collaboration, with a strong focus on user experience and
+        functionality.</strong
+      >
     </p>
   </section>
 </div>
@@ -49,7 +34,7 @@
     >
       {{ range .Items }}
       <div
-        class="flex-none border-2 border-{{ $color }}-800 hover:border-{{ $color }}-500 shadow-2xl shadow-{{ $color }}-800/60 hover:shadow-{{ $color }}-800 transition text-white text-center w-40 rounded-sm px-4 py-6 snap-start scroll-m-6"
+        class="flex-none border-2 border-{{ $color }}-800 hover:border-{{ $color }}-500 shadow-2xl shadow-{{ $color }}-800/60 hover:shadow-{{ $color }}-800 lg:hover:scale-105 transition text-white text-center w-40 rounded-sm px-4 py-6 snap-start scroll-m-6"
       >
         <span class="block text-{{ $color }}-600 font-bold mb-8 text-3xl"
           >{{ .Badge }}</span
@@ -63,7 +48,7 @@
     {{ end }}
   </section>
 </div>
-<div class="bg-slate-50 p-16">
+<div id="experience" class="bg-slate-50 p-16">
   <section class="container mx-auto max-w-prose prose prose-xl">
     <h2>Experience</h2>
     {{ range .Experience }}
@@ -75,18 +60,7 @@
     <p>{{ . }}</p>
     {{ end }}
     <hr />
-    {{ end }}
-    <p>
-      <strong>If you'd like to get in touch,</strong> either to say hi or to
-      find out more, feel free to reach out to me on:
-    </p>
-    <ul>
-      {{ range .Contact }}
-      <li>
-        <a href="{{ .Link }}" target="_blank">{{ .Label }}</a>
-      </li>
-      {{ end }}
-    </ul>
+    {{ end }} {{ template "contact" .Page.Contact }}
   </section>
 </div>
 
