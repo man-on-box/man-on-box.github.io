@@ -2,10 +2,13 @@
 <div class="bg-slate-50 p-16">
   <section class="container mx-auto max-w-prose prose prose-xl">
     <h2>About</h2>
-    <p>I'm a self taught developer, from Manchester, UK</p>
+    <p>
+      I'm a self taught developer from Manchester, UK currently residing in
+      Barcelona, Spain.
+    </p>
     <p>From a young age, I loved lego's.</p>
     <hr />
-    {{ template "contact" .Page.Contact }}
+    {{ template "contact" .Page.Socials }}
   </section>
 </div>
-{{ template "footer" . }} {{ end }}
+{{ template "footer" .Page }} {{ end }}

@@ -10,16 +10,17 @@ type Link struct {
 	Label string
 }
 
+type Social struct {
+	Img  string
+	Alt  string
+	Link Link
+}
+
 type page struct {
 	Title   string
 	Desc    string
-	Contact []Link
 	Nav     []Link
-}
-
-var Contact = []Link{
-	{Label: "LinkedIn", Url: LINKEDIN_URL},
-	{Label: "Github", Url: GITHUB_URL},
+	Socials []Social
 }
 
 var NavLinks = []Link{
@@ -28,4 +29,9 @@ var NavLinks = []Link{
 	{Label: "Skills", Url: "/#skills"},
 	{Label: "Experience", Url: "/#experience"},
 	{Label: "Contact", Url: "/#contact"},
+}
+
+var Socials = []Social{
+	{Img: "/img/linkedin-logo.svg", Alt: "LinkedIn", Link: Link{Url: LINKEDIN_URL, Label: "LinkedIn"}},
+	{Img: "/img/github-logo.svg", Alt: "Github", Link: Link{Url: GITHUB_URL, Label: "Github"}},
 }

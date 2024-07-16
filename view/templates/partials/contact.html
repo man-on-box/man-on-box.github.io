@@ -1,13 +1,14 @@
 {{ define "contact" }}
 <div id="contact">
+  <h2>Contact</h2>
   <p>
     <strong>If you'd like to get in touch,</strong> either to say hi or to find
     out more, feel free to reach out to me on:
   </p>
   <ul>
-    {{ range .}}
+    {{ range . }}
     <li>
-      <a href="{{ .Url }}" target="_blank">{{ .Label }}</a>
+      <a href="{{ .Link.Url }}" target="_blank">{{ .Link.Label }}</a>
     </li>
     {{ end }}
   </ul>

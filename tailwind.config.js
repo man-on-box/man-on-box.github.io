@@ -3,7 +3,6 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ["Wittgenstein", "sans-serif"],
-      serif: ["Wittgenstein", "serif"],
     },
   },
   plugins: [require("@tailwindcss/typography")],

@@ -35,8 +35,8 @@ func (s *Static) pageIndex(tmpl *template.Template) {
 	data := indexData{
 		Page: page{
 			Title:   "Hey, I'm Oli",
-			Contact: Contact,
 			Nav:     NavLinks,
+			Socials: Socials,
 			Desc:    "Hey I'm Oli, user-centric and product focused software engineer.",
 		},
 		Skills: []skill{
@@ -89,7 +89,7 @@ func (s *Static) pageIndex(tmpl *template.Template) {
 				Date:     "2019 - Present",
 				Location: "Barcelona, Spain",
 				Description: []string{
-					"Leading the frontend initiative to evolve and build the custom built experimentation platform.",
+					"Leading the frontend initiative to evolve and build the in-house built experimentation platform.",
 				},
 			}, {
 				Title:    "Web Developer",

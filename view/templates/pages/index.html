@@ -36,7 +36,9 @@
       <div
         class="flex-none border-2 border-{{ $color }}-800 hover:border-{{ $color }}-500 shadow-2xl shadow-{{ $color }}-800/60 hover:shadow-{{ $color }}-800 lg:hover:scale-105 transition text-white text-center w-40 rounded-sm px-4 py-6 snap-start scroll-m-6"
       >
-        <span class="block text-{{ $color }}-600 font-bold mb-8 text-3xl"
+        <span
+          class="block text-{{ $color }}-600 font-bold mb-8 text-3xl"
+          aria-hidden="true"
           >{{ .Badge }}</span
         >
         <span class="text-xl">{{ .Label }}</span>
@@ -60,8 +62,8 @@
     <p>{{ . }}</p>
     {{ end }}
     <hr />
-    {{ end }} {{ template "contact" .Page.Contact }}
+    {{ end }} {{ template "contact" .Page.Socials }}
   </section>
 </div>
 
-{{ template "footer" . }} {{ end }}
+{{ template "footer" .Page }} {{ end }}
