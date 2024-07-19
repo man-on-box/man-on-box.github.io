@@ -76,7 +76,7 @@ func (s *Static) pageIndex(tmpl *template.Template) {
 				Items: []item{
 					{Label: "Git", Badge: "{ }"},
 					{Label: "Amazon Web Services", Badge: "AWS"},
-					{Label: "Linux Administation", Badge: "/"},
+					{Label: "Linux Administation", Badge: "$_"},
 					{Label: "Windows Server", Badge: "C:\\"},
 					{Label: "Github Actions", Badge: "GHA"},
 					{Label: "Travis", Badge: "{ }"},
