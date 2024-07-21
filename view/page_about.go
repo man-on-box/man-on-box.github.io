@@ -2,7 +2,6 @@ package view
 
 import (
 	"html/template"
-	"log"
 )
 
 type aboutData struct {
@@ -10,19 +9,16 @@ type aboutData struct {
 	Content template.HTML
 }
 
-func (s *Static) pageAbout(tmpl *template.Template) {
+func (s *Static) pageAbout() {
 	data := aboutData{
 		Page: page{
-			Title:   "Hey, I'm Oli",
+			Title:   "About Oli",
+			Desc:    "Hey I'm Oli, user-centric and product focused software engineer.",
 			Nav:     NavLinks,
 			Socials: Socials,
-			Desc:    "Hey I'm Oli, user-centric and product focused software engineer.",
 		},
 		Content: mdFileToHTML("content/about.md"),
 	}
 
-	f := s.createFile("/about.html")
-	if err := tmpl.ExecuteTemplate(f, "about", data); err != nil {
-		log.Fatalf("Error executing template: %v", err)
-	}
+	s.render("about", "/about.html", data)
 }

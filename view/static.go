@@ -14,24 +14,33 @@ import (
 
 type Static struct {
 	DistDir string
+	tmpl    *template.Template
 }
 
 func (s *Static) Generate() {
-	tmpl := parseTemplates()
+	s.parseTemplates()
 	s.copyPublicDir()
 
-	s.pageIndex(tmpl)
-	s.pageAbout(tmpl)
+	s.pageIndex()
+	s.pageAbout()
 }
 
-func parseTemplates() *template.Template {
+func (s *Static) parseTemplates() {
 	tmpl, err := template.New("").Funcs(template.FuncMap{
 		"currentYear": currentYear,
 	}).ParseGlob("./view/templates/**/*.html")
 	if err != nil {
 		log.Fatalf("Error parsing templates: %v", err)
 	}
-	return tmpl
+	s.tmpl = tmpl
+}
+
+func (s *Static) render(tmplName string, filepath string, data interface{}) {
+	f := s.createFile(filepath)
+	if err := s.tmpl.ExecuteTemplate(f, tmplName, data); err != nil {
+		log.Fatalf("Error executing template: %v", err)
+	}
+
 }
 
 func (s *Static) copyPublicDir() {

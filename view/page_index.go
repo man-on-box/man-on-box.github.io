@@ -1,10 +1,5 @@
 package view
 
-import (
-	"html/template"
-	"log"
-)
-
 type item struct {
 	Label string
 	Badge string
@@ -30,14 +25,14 @@ type indexData struct {
 	Experience []job
 }
 
-func (s *Static) pageIndex(tmpl *template.Template) {
+func (s *Static) pageIndex() {
 
 	data := indexData{
 		Page: page{
 			Title:   "Hey, I'm Oli",
+			Desc:    "Hey I'm Oli, user-centric and product focused software engineer.",
 			Nav:     NavLinks,
 			Socials: Socials,
-			Desc:    "Hey I'm Oli, user-centric and product focused software engineer.",
 		},
 		Skills: []skill{
 			{
@@ -130,9 +125,5 @@ func (s *Static) pageIndex(tmpl *template.Template) {
 		},
 	}
 
-	f := s.createFile("/index.html")
-	if err := tmpl.ExecuteTemplate(f, "homepage", data); err != nil {
-		log.Fatalf("Error executing template: %v", err)
-	}
-
+	s.render("homepage", "/index.html", data)
 }
