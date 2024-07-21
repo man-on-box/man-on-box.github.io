@@ -1,12 +1,15 @@
 package view
 
 import (
+	"bytes"
 	"html/template"
 	"io"
 	"log"
 	"os"
 	"path/filepath"
 	"time"
+
+	"github.com/yuin/goldmark"
 )
 
 type Static struct {
@@ -43,6 +46,26 @@ func (s *Static) createFile(fileName string) *os.File {
 		log.Fatalf("Could not create file: %v", err)
 	}
 	return f
+}
+
+func mdFileToHTML(file string) template.HTML {
+	f, err := os.ReadFile(file)
+	if err != nil {
+		log.Fatalf("Error reading markdown file: %v", err)
+	}
+	var buf bytes.Buffer
+	if err := goldmark.Convert(f, &buf); err != nil {
+		log.Fatalf("Error converting markdown to HTML: %v", err)
+	}
+	return template.HTML(buf.String())
+}
+
+func mdToHTML(md string) template.HTML {
+	var buf bytes.Buffer
+	if err := goldmark.Convert([]byte(md), &buf); err != nil {
+		log.Fatalf("Error converting markdown to HTML: %v", err)
+	}
+	return template.HTML(buf.String())
 }
 
 func currentYear() int {

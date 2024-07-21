@@ -6,7 +6,8 @@ import (
 )
 
 type aboutData struct {
-	Page page
+	Page    page
+	Content template.HTML
 }
 
 func (s *Static) pageAbout(tmpl *template.Template) {
@@ -17,6 +18,7 @@ func (s *Static) pageAbout(tmpl *template.Template) {
 			Socials: Socials,
 			Desc:    "Hey I'm Oli, user-centric and product focused software engineer.",
 		},
+		Content: mdFileToHTML("content/about.md"),
 	}
 
 	f := s.createFile("/about.html")

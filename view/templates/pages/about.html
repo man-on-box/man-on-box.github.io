@@ -1,12 +1,7 @@
 {{ define "about" }} {{ template "header" .Page }} {{ template "hero" }}
 <div class="bg-slate-50 p-16">
   <section class="container mx-auto max-w-prose prose prose-xl">
-    <h2>About</h2>
-    <p>
-      I'm a self taught developer from Manchester, UK currently residing in
-      Barcelona, Spain.
-    </p>
-    <p>From a young age, I loved lego's.</p>
+    {{ .Content }}
     <hr />
     {{ template "contact" .Page.Socials }}
   </section>
