@@ -25,7 +25,7 @@ type page struct {
 
 var NavLinks = []Link{
 	{Label: "Home", Url: "/"},
-	// {Label: "About", Url: "/about.html"},
+	{Label: "About", Url: "/about.html"},
 	{Label: "Skills", Url: "/#skills"},
 	{Label: "Experience", Url: "/#experience"},
 	{Label: "Contact", Url: "/#contact"},
