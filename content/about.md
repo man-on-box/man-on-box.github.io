@@ -2,9 +2,9 @@
 
 I'm a self taught developer from Manchester, UK currently living in Barcelona, Spain.
 
-I specialise in frontend development, but my journey has been a unique one, which I feel puts me in a unique position in how to tackle and approach problem solving.
+I like it when things look good, I like it even better when things work well. I'm not the type of frontender who will spend hours on a single animation or effect, but I do go the extra mile and focus on the small details to build a cohesive and pleasant user experience.
 
-I like it when things look good, I like it even better when things work well. I'm not the sort of frontender who will spend hours on a single animation or effect, but I do go the extra mile and focus on the small details to build a cohesive and pleasant user experience.
+I specialise in frontend development, but my journey has been a unique one, which I feel puts me in a unique position in how to tackle and approach problem solving.
 
 ### My personal journey
 
@@ -16,15 +16,15 @@ So, it was a natural transition for me to get into tech when I finished school. 
 
 Of course things were not without its drama. All throughout my childhood my father suffered from alcoholism and depression. I was put into situations a kid should not have to see or experience. During these tough times I threw myself into my imagination and used this to fuel my passions and discover my creative side. Going through this and losing my Dad at an early age has left many scars that I still wear to this day, though I believe it has helped shape me to the person I am today, and enables me to have an empathy to be able to understand people and their problems to an extent I would not have otherwise would.
 
-I mention this because I feel it has really helped me in my career immensely. Starting in tech support, I realised the most important thing are the users, and being able to understand their needs through listening and asking the right questions.
+I mention this because I feel it has immensely helped me in my career. Starting in tech support, I realised the most important thing are the users, and being able to understand their needs through listening and asking the right questions goes a long way and should not be underestimated.
 
-Today I have had plenty of experience solving complex problems, either alone or helping other people and teams, and I believe I could help not because I was better or smarter, but because I could approach problems from a different perspective and angle, which often shed light into new avenues of thought - and often problems that looked complex or illogical would soon start to make sense.
+Today I have had plenty of experience solving complex problems, either alone or helping other people and teams, and I believe I could help not because I was better or smarter, but because I could approach problems from a different perspective, which often shed light into new avenues of thought - and problems that first looked complex or illogical would soon start to make sense.
 
 It is this experience in life and in tech in general that I believe puts me in a unique position to approach problem solving as a software engineer, and why I pair so well working with other developers who might not have had the opportunity to work and solve problems outside of their academic scope.
 
 ### Developer journey
 
-I've talked a lot about my personal journey, but not much about programming. It took me a while to realise my true joy for coding.
+I've talked a lot about my personal journey, but not much about programming. It took me a while to realise my true joy for coding. A long the way I got a lot into hardware, networking, infrastructure and tech support.
 
 It actually started way back in my computer gaming years. I was really into a MMORPG called Legend of Mir, so much so that while scouring forums one day I found a copy of the map building software and eagerly started learning and building maps. I found I could use assets in creative ways not used in the base game which gave my maps a new and fresh feel.
 
