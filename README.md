@@ -8,6 +8,7 @@ To build a static site generator with:
 
 - A typed language
 - Automatically update site with master branch
+- Support HTML templating
 - Support Markdown format
 - Use as few dependencies as possible
 - Easy to extend for blog purposes
@@ -26,7 +27,7 @@ Now there are many alternatives to JS frontend frameworks (such as Django, Larav
 
 I love [Go](https://go.dev/) and want to continue learning in this space. So I wanted to see how far I could get by just using the standard library to build my own static site generator, and turns out, you can go pretty far.
 
-The project is small, and self explanatory with just Tailwind as a node dependency (for transparency, the version at writing contains 150 dev dependencies).
+The project is small, and self explanatory with just Tailwind and Tailwing Typography as a node dependencies (for transparency, the versions at writing contains 150 dev dependencies).
 
 ## Development
 
