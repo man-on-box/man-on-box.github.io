@@ -24,7 +24,7 @@ It is this experience in life and in tech in general that I believe puts me in a
 
 ### Developer journey
 
-I've talked a lot about my personal journey, but not much about programming. It took me a while to realise my true joy for coding. A long the way I got a lot into hardware, networking, infrastructure and tech support.
+I've talked a lot about my personal journey, but not much about programming. It took me a while to realise my true joy for coding. Along the way I got a lot into hardware, networking, infrastructure and tech support.
 
 It actually started way back in my computer gaming years. I was really into a MMORPG called Legend of Mir, so much so that while scouring forums one day I found a copy of the map building software and eagerly started learning and building maps. I found I could use assets in creative ways not used in the base game which gave my maps a new and fresh feel.
 

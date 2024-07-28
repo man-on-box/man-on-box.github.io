@@ -95,7 +95,7 @@ func (s *Static) pageIndex() {
 				Location: "Barcelona, Spain",
 				Description: []string{
 					"Leading the frontend initiative to evolve and build the in-house built experimentation platform and libraries used across European marketplaces with millions of users.",
-					"Working across a large tech stack, with a focus on React, Typescript, Vite, NodeJS and Golang.",
+					"Working across a large tech stack, with a focus on React, Typescript, Vite, NodeJS and Golang, as well helping and mentoring fellow developers.",
 				},
 			}, {
 				Title:    "Web Developer",
@@ -111,7 +111,7 @@ func (s *Static) pageIndex() {
 				Date:     "2015 - 2017",
 				Location: "Manchester, UK",
 				Description: []string{
-					"Moving from the Senior Windows team to take lead of the Disaster Recovery team, I was responsible for the design and implementation of the disaster recovery solutions for the company's enterprise clients, as well as architecting and scaling the backup infrastructure to handle petabytes of data distibuted across multiple datacenters. I also managed the team and the day to day operations of the department.",
+					"Moving from the Senior Windows team to take lead of the Disaster Recovery team, I was responsible for the design and implementation of the disaster recovery solutions for the company's enterprise clients, as well as architecting and scaling the backup infrastructure to handle petabytes of data distributed across multiple datacenters. I also managed the team and the day to day operations of the department.",
 				},
 			}, {
 				Title:    "Windows Server Engineer",
@@ -119,7 +119,7 @@ func (s *Static) pageIndex() {
 				Date:     "2013 - 2015",
 				Location: "Manchester, UK",
 				Description: []string{
-					"Starting in the company as a Windows Engineer, day to day duties comprised of supporting customers via phone or ticket system for their solutions hosted with UK Fast. This included but not limited to support with Windows 2008/2012, Active Directory, Exchange, IIS, VMWare, Hyper-V, MSSQL and basic support on CentOS, Red Hat and Ubuntu servers.",
+					"Starting in the company as a Windows Engineer, day to day duties consisted of supporting customers via phone or ticket system for their solutions hosted with UK Fast. This included but not limited to support with Windows 2008/2012, Active Directory, Exchange, IIS, VMWare, Hyper-V, MSSQL and basic support on CentOS, Red Hat and Ubuntu servers.",
 					"Within a few months I was then promoted to a Senior Windows Engineer, which involved supporting customers of a higher tier with more complex solutions such as clusters, DAGs, MSSQL High Availability and multi node Exchange environments.",
 				},
 			}, {
