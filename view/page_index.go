@@ -1,5 +1,9 @@
 package view
 
+import (
+	"html/template"
+)
+
 type item struct {
 	Label string
 	Badge string
@@ -21,6 +25,7 @@ type job struct {
 
 type indexData struct {
 	Page       page
+	Content    template.HTML
 	Skills     []skill
 	Experience []job
 }
@@ -34,6 +39,7 @@ func (s *Static) pageIndex() {
 			Nav:     NavLinks,
 			Socials: Socials,
 		},
+		Content: mdFileToHTML("content/home.md"),
 		Skills: []skill{
 			{
 				Title: "Frontend",
@@ -47,6 +53,8 @@ func (s *Static) pageIndex() {
 					{Label: "Vite", Badge: "{ }"},
 					{Label: "Webpack", Badge: "{ }"},
 					{Label: "Tailwind", Badge: "{ }"},
+					{Label: "HTML", Badge: "</>"},
+					{Label: "CSS", Badge: "{ }"},
 					{Label: "SASS", Badge: "{ }"},
 					{Label: "Jest", Badge: "{ }"},
 					{Label: "Cypress", Badge: "{ }"},
@@ -69,10 +77,10 @@ func (s *Static) pageIndex() {
 				Title: "DevOps",
 				Color: "amber",
 				Items: []item{
-					{Label: "Git", Badge: "{ }"},
 					{Label: "Amazon Web Services", Badge: "AWS"},
 					{Label: "Linux Administation", Badge: "$_"},
 					{Label: "Windows Server", Badge: "C:\\"},
+					{Label: "Git", Badge: "{ }"},
 					{Label: "Github Actions", Badge: "GHA"},
 					{Label: "Travis", Badge: "{ }"},
 					{Label: "Docker", Badge: "{ }"},
@@ -87,6 +95,7 @@ func (s *Static) pageIndex() {
 				Location: "Barcelona, Spain",
 				Description: []string{
 					"Leading the frontend initiative to evolve and build the in-house built experimentation platform and libraries used across European marketplaces with millions of users.",
+					"Working across a large tech stack, with a focus on React, Typescript, Vite, NodeJS and Golang.",
 				},
 			}, {
 				Title:    "Web Developer",
