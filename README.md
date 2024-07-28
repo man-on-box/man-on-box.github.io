@@ -1,6 +1,6 @@
 # Man on box
 
-Yet another portfolio website. This is a simple static site/blog deployed to Github pages, but I wanted to experiment a little.
+Yet another portfolio website. This is a simple static site/blog deployed to Github pages, but I wanted to experiment a little and roll my own site generator.
 
 ## Motivation
 
@@ -18,7 +18,7 @@ However, if you opt for Astro, you need to use Javascript (or Typescript if you 
 
 As an example, I have a small personal project which uses Astro, Typescript and Tailwind CSS. If I list all dependencies of this project (`npm ls -all`), there are currently 1101 dependencies in total. A positive mention is that these are all dev dependencies, so they are not exposed to the client, but this is a tiny personal project and these dependencies will require maintenance as the project goes on.
 
-As a result, most projects built with Frontend frameworks like React/Svelte/SolidJS and all the extra dependencies you'll be using (Vite, Webpack, UI component libraries, testing frameworks, etc etc) inherently make your project [hot blooded](https://blog.jim-nielsen.com/2024/cold-blooded-software/) (they require constant maintenance, if you want to keep dependencies up to date or secure), as well common breaking changes as these libraries evolve and compete with each other.
+As a result, most projects built with Frontend frameworks like React/Svelte/SolidJS and all the extra dependencies you'll be using (Vite, Webpack, UI component libraries, testing frameworks, etc etc) inherently make your project [warm-blooded](https://blog.jim-nielsen.com/2024/cold-blooded-software/) (they require constant maintenance, if you want to keep dependencies up to date or secure), as well common breaking changes as these libraries evolve and compete with each other.
 
 This can be okay, but as soon as you are maintaining multiple projects, sometimes just keeping them up to date can generate a lot of TOIL.
 
