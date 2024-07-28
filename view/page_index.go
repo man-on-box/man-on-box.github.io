@@ -30,7 +30,7 @@ type indexData struct {
 	Experience []job
 }
 
-func (s *Static) pageIndex() {
+func (v *View) pageIndex() {
 
 	data := indexData{
 		Page: page{
@@ -39,7 +39,7 @@ func (s *Static) pageIndex() {
 			Nav:     NavLinks,
 			Socials: Socials,
 		},
-		Content: mdFileToHTML("content/home.md"),
+		Content: v.static.MdFileToHTML("content/home.md"),
 		Skills: []skill{
 			{
 				Title: "Frontend",
@@ -134,5 +134,5 @@ func (s *Static) pageIndex() {
 		},
 	}
 
-	s.render("homepage", "/index.html", data)
+	v.static.Render("homepage", "/index.html", data)
 }

@@ -1,13 +1,16 @@
 package main
 
 import (
+	"github.com/man-on-box/man-on-box.github.io/static"
 	"github.com/man-on-box/man-on-box.github.io/view"
 )
 
 func main() {
-	static := view.Static{
-		DistDir: "dist",
-	}
+	distDir := "dist"
+	tmplDir := "./view/templates/**/*.html"
 
-	static.Generate()
+	s := static.New(distDir, tmplDir)
+	v := view.New(s)
+
+	v.GeneratePages()
 }

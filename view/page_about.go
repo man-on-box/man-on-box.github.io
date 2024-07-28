@@ -9,7 +9,7 @@ type aboutData struct {
 	Content template.HTML
 }
 
-func (s *Static) pageAbout() {
+func (v *View) pageAbout() {
 	data := aboutData{
 		Page: page{
 			Title:   "About Oli",
@@ -17,8 +17,8 @@ func (s *Static) pageAbout() {
 			Nav:     NavLinks,
 			Socials: Socials,
 		},
-		Content: mdFileToHTML("content/about.md"),
+		Content: v.static.MdFileToHTML("content/about.md"),
 	}
 
-	s.render("about", "/about.html", data)
+	v.static.Render("about", "/about.html", data)
 }
