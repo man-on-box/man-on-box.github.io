@@ -1,3 +1,4 @@
+// Package view utilizes the static package to generate the static pages and content.
 package view
 
 import (
@@ -8,6 +9,7 @@ type View struct {
 	static *static.Static
 }
 
+// New creates a new View instance which can then be used to generate the site as static HTML files.
 func New(s *static.Static) *View {
 	return &View{s}
 }

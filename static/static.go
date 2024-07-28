@@ -1,3 +1,4 @@
+// Package static provides a simple way to generate static websites using Go templates and markdown.
 package static
 
 import (
@@ -15,6 +16,7 @@ type Static struct {
 	tmpl    *template.Template
 }
 
+// New creates a new Static instance which can then be used to generate static HTML files, with Markdown support.
 func New(distDir string, tmplDir string) *Static {
 	s := Static{
 		DistDir: distDir,
