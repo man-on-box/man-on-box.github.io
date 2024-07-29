@@ -74,7 +74,7 @@ func (s *Static) generateSitemap() {
 		urlPath := pathToURL(path)
 		builder.WriteString(fmt.Sprintf(`
         <url>
-            <loc>%s%s</loc>
+		<loc>https://%s%s</loc>
         </url>`, s.SiteUrl, urlPath))
 	}
 	builder.WriteString(`</urlset>`)
