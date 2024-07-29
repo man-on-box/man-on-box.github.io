@@ -17,4 +17,6 @@ func New(s *static.Static) *View {
 func (v *View) GeneratePages() {
 	v.pageIndex()
 	v.pageAbout()
+
+	v.static.Done()
 }

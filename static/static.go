@@ -3,6 +3,7 @@ package static
 
 import (
 	"bytes"
+	"fmt"
 	"html/template"
 	"log"
 	"os"
@@ -13,21 +14,25 @@ import (
 
 type Static struct {
 	DistDir string
+	SiteUrl string
 	tmpl    *template.Template
+	siteMap []string
 }
 
 // New creates a new Static instance which can then be used to generate static HTML files, with Markdown support.
-func New(distDir string, tmplDir string) *Static {
+func New(distDir string, siteUrl string) *Static {
 	s := Static{
 		DistDir: distDir,
+		SiteUrl: siteUrl,
 	}
-	s.parseTemplates(tmplDir)
+	s.parseTemplates()
 	s.copyPublicDir()
 	return &s
 }
 
 func (s *Static) Render(tmplName string, filepath string, data interface{}) {
 	f := s.createFile(filepath)
+	fmt.Println("Rendering:", filepath)
 	if err := s.tmpl.ExecuteTemplate(f, tmplName, data); err != nil {
 		log.Fatalf("Error executing template: %v", err)
 	}
@@ -53,7 +58,25 @@ func (s *Static) MdToHTML(md string) template.HTML {
 	return template.HTML(buf.String())
 }
 
-func (s *Static) parseTemplates(path string) {
+// Done should be called after all pages have been generated.
+func (s *Static) Done() {
+	s.generateRobotsTxt()
+}
+
+func (s *Static) generateRobotsTxt() {
+	f := s.createFile("/robots.txt")
+	content := `User-agent: *
+Disallow:
+Allow: /
+
+Sitemap: https://%s/sitemap.xml
+`
+	robotsTxt := []byte(fmt.Sprintf(content, s.SiteUrl))
+	f.Write(robotsTxt)
+}
+
+func (s *Static) parseTemplates() {
+	path := "./view/templates/**/*.html"
 	tmpl, err := template.New("").Funcs(createFuncMap()).ParseGlob(path)
 	if err != nil {
 		log.Fatalf("Error parsing templates: %v", err)

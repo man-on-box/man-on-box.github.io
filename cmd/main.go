@@ -7,9 +7,9 @@ import (
 
 func main() {
 	distDir := "dist"
-	tmplDir := "./view/templates/**/*.html"
+	siteUrl := "manonbox.io"
 
-	s := static.New(distDir, tmplDir)
+	s := static.New(distDir, siteUrl)
 	v := view.New(s)
 
 	v.GeneratePages()
