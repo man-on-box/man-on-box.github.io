@@ -7,16 +7,17 @@ import (
 	"html/template"
 	"log"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/yuin/goldmark"
 )
 
 type Static struct {
-	DistDir string
-	SiteUrl string
-	tmpl    *template.Template
-	siteMap []string
+	DistDir   string
+	SiteUrl   string
+	tmpl      *template.Template
+	sitePaths []string
 }
 
 // New creates a new Static instance which can then be used to generate static HTML files, with Markdown support.
@@ -32,10 +33,10 @@ func New(distDir string, siteUrl string) *Static {
 
 func (s *Static) Render(tmplName string, filepath string, data interface{}) {
 	f := s.createFile(filepath)
-	fmt.Println("Rendering:", filepath)
 	if err := s.tmpl.ExecuteTemplate(f, tmplName, data); err != nil {
 		log.Fatalf("Error executing template: %v", err)
 	}
+	s.sitePaths = append(s.sitePaths, filepath)
 }
 
 func (s *Static) MdFileToHTML(file string) template.HTML {
@@ -61,6 +62,23 @@ func (s *Static) MdToHTML(md string) template.HTML {
 // Done should be called after all pages have been generated.
 func (s *Static) Done() {
 	s.generateRobotsTxt()
+	s.generateSitemap()
+}
+
+func (s *Static) generateSitemap() {
+	f := s.createFile("/sitemap.xml")
+	var builder strings.Builder
+	builder.WriteString(`<?xml version="1.0" encoding="UTF-8"?>`)
+	builder.WriteString(`<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`)
+	for _, path := range s.sitePaths {
+		urlPath := pathToURL(path)
+		builder.WriteString(fmt.Sprintf(`
+        <url>
+            <loc>%s%s</loc>
+        </url>`, s.SiteUrl, urlPath))
+	}
+	builder.WriteString(`</urlset>`)
+	f.Write([]byte(builder.String()))
 }
 
 func (s *Static) generateRobotsTxt() {
@@ -96,6 +114,13 @@ func (s *Static) createFile(fileName string) *os.File {
 		log.Fatalf("Could not create file: %v", err)
 	}
 	return f
+}
+
+func pathToURL(path string) string {
+	if path == "/index.html" {
+		return "/"
+	}
+	return strings.TrimSuffix(path, ".html")
 }
 
 func createFuncMap() template.FuncMap {
