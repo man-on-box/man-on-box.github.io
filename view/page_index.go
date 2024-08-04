@@ -140,5 +140,5 @@ func (v *View) pageIndex() {
 		},
 	}
 
-	v.static.Render("homepage", "/index.html", data)
+	v.static.Render("page-home", "/index.html", data)
 }

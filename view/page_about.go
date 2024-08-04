@@ -26,5 +26,5 @@ func (v *View) pageAbout() {
 		Content: v.static.MdFileToHTML("content/about.md"),
 	}
 
-	v.static.Render("about", "/about.html", data)
+	v.static.Render("page-about", "/about.html", data)
 }
