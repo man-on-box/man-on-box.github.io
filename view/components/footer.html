@@ -1,0 +1,55 @@
+{{ define "footer" }}
+<footer class="bg-slate-800 text-slate-400 text-sm p-16">
+  <section class="container mx-auto max-w-5xl">
+    <div class="flex justify-between">
+      <div class="flex-col text-center inline-flex">
+        <img
+          src="/img/man-on-box-circle.svg"
+          alt="github profile"
+          class="w-20 h-20 mb-2"
+        />
+        <span class="text-white font-bold">Man on Box</span>
+      </div>
+      <div class="sm:flex sm:ml-10 sm:grow justify-between">
+        <div class="flex sm:flex-col gap-2 mb-5">
+          {{ range .Socials }}
+          <a
+            href="{{ .Link.Url }}"
+            aria-label="{{ .Link.Label }}"
+            target="_blank"
+          >
+            <img
+              src="{{ .Img }}"
+              alt="{{ .Alt }}"
+              class="w-10 h-10 opacity-85 hover:opacity-100"
+            />
+          </a>
+          {{ end }}
+        </div>
+        <div class="flex flex-col gap-2">
+          {{ range .Links }}
+
+          <a
+            class="nav-link hover:underline hover:text-white font-bold"
+            href="{{ .Url }}"
+            >{{ .Label }}</a
+          >
+          {{ end }}
+        </div>
+      </div>
+    </div>
+    <hr class="my-10" />
+    <div
+      class="text-center flex flex-col gap-2 md:flex-row-reverse md:justify-between"
+    >
+      <a
+        href="{{ .GithubUrl }}"
+        target="_blank"
+        class="hover:underline hover:text-white"
+        >Site built with Go & Tailwind</a
+      >
+      <p>© {{ .CurrentYear }} · Man on Box Portfolio</p>
+    </div>
+  </section>
+</footer>
+{{ end }}

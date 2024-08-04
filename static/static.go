@@ -94,7 +94,8 @@ Sitemap: https://%s/sitemap.xml
 }
 
 func (s *Static) parseTemplates() {
-	path := "./view/templates/**/*.html"
+	path := "./view/**/*.html"
+
 	tmpl, err := template.New("").Funcs(createFuncMap()).ParseGlob(path)
 	if err != nil {
 		log.Fatalf("Error parsing templates: %v", err)
