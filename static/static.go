@@ -8,7 +8,6 @@ import (
 	"log"
 	"os"
 	"strings"
-	"time"
 
 	"github.com/yuin/goldmark"
 )
@@ -96,7 +95,7 @@ Sitemap: https://%s/sitemap.xml
 func (s *Static) parseTemplates() {
 	path := "./view/**/*.html"
 
-	tmpl, err := template.New("").Funcs(createFuncMap()).ParseGlob(path)
+	tmpl, err := template.New("").ParseGlob(path)
 	if err != nil {
 		log.Fatalf("Error parsing templates: %v", err)
 	}
@@ -122,12 +121,4 @@ func pathToURL(path string) string {
 		return "/"
 	}
 	return strings.TrimSuffix(path, ".html")
-}
-
-func createFuncMap() template.FuncMap {
-	return template.FuncMap{
-		"currentYear": func() int {
-			return time.Now().Year()
-		},
-	}
 }
