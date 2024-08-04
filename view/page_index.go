@@ -2,6 +2,8 @@ package view
 
 import (
 	"html/template"
+
+	"github.com/man-on-box/man-on-box.github.io/view/components"
 )
 
 type item struct {
@@ -23,8 +25,11 @@ type job struct {
 	Description []string
 }
 
-type indexData struct {
-	Page       page
+type pageData struct {
+	Head       components.Head
+	NavMenu    components.NavMenu
+	Contact    components.Contact
+	Footer     components.Footer
 	Content    template.HTML
 	Skills     []skill
 	Experience []job
@@ -32,13 +37,14 @@ type indexData struct {
 
 func (v *View) pageIndex() {
 
-	data := indexData{
-		Page: page{
-			Title:   "Hey, I'm Oli",
-			Desc:    "Hey I'm Oli, user-centric and product focused software engineer.",
-			Nav:     NavLinks,
-			Socials: Socials,
+	data := pageData{
+		Head: components.Head{
+			Title: "Hey, I'm Oli",
+			Desc:  "Hey I'm Oli, user-centric and product focused software engineer.",
 		},
+		NavMenu: components.NewNavMenu(),
+		Contact: components.NewContact(),
+		Footer:  components.NewFooter(),
 		Content: v.static.MdFileToHTML("content/home.md"),
 		Skills: []skill{
 			{
@@ -134,5 +140,5 @@ func (v *View) pageIndex() {
 		},
 	}
 
-	v.static.Render("homepage", "/index.html", data)
+	v.static.Render("page-home", "/index.html", data)
 }

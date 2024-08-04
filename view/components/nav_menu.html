@@ -1,4 +1,4 @@
-{{ define "nav" }}
+{{ define "nav-menu" }}
 <nav
   id="nav-menu"
   class="hidden bg-slate-950/90 text-slate-50 backdrop-blur z-10 border-b fixed w-svw p-20 text-2xl"
@@ -11,7 +11,7 @@
       aria-hidden="true"
     />
     <div class="flex flex-col gap-8 border-l-2 border-l-slate-700 pl-5">
-      {{ range .Nav }}
+      {{ range .Links }}
 
       <a class="nav-link hover:underline font-bold" href="{{ .Url }}"
         >{{ .Label }}</a

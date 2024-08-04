@@ -1,0 +1,17 @@
+{{ define "page-about" }}
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  {{ template "head" .Head}}
+  <body class="antialiased">
+    {{ template "nav-menu" .NavMenu }} {{ template "hero" }}
+    <div class="bg-slate-50 dark:bg-slate-900 p-16">
+      <section
+        class="container mx-auto max-w-prose prose dark:prose-invert prose-xl"
+      >
+        {{ .Content }} {{ template "contact" .Contact}}
+      </section>
+    </div>
+    {{ template "footer" .Footer }}
+  </body>
+</html>
+{{ end }}
