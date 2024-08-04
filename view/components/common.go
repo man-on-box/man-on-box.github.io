@@ -1,8 +1,9 @@
 package components
 
 const (
-	LINKEDIN_URL = "https://www.linkedin.com/in/oliver-hughes-m880/"
-	GITHUB_URL   = "https://github.com/man-on-box"
+	LINKEDIN_URL    = "https://www.linkedin.com/in/oliver-hughes-m880/"
+	GITHUB_URL      = "https://github.com/man-on-box"
+	GITHUB_REPO_URL = "https://github.com/man-on-box/man-on-box.github.io"
 )
 
 type Link struct {
