@@ -4,14 +4,26 @@
   {{ template "head" .Head}}
   <body class="antialiased">
     {{ template "nav-menu" .NavMenu }} {{ template "hero" }}
-    <div class="bg-slate-50 dark:bg-slate-900 p-16">
+    <div class="bg-slate-50 dark:bg-slate-900 py-16 px-6 sm:px-16">
       <section
         class="container mx-auto max-w-prose prose dark:prose-invert prose-xl"
       >
         {{ .Content }}
+        <hr />
+        <p id="articles" class="font-bold">Latest articles</p>
+        {{ range .Articles }}
+
+        <a
+          class="block border rounded p-5 no-underline hover:underline"
+          href="/articles/{{ .Slug }}.html"
+        >
+          <span class="font-bold block text-2xl">{{ .Title }}</span>
+          <small class="block">{{ .Published }}</small>
+        </a>
+        {{ end }}
       </section>
     </div>
-    <div id="skills" class="bg-slate-950 p-16 overflow-hidden">
+    <div id="skills" class="bg-slate-950 py-16 px-6 sm:px-16 overflow-hidden">
       <section
         class="container mx-auto max-w-5xl overflow-visible prose prose-invert prose-xl"
       >
@@ -41,7 +53,10 @@
         {{ end }}
       </section>
     </div>
-    <div id="experience" class="bg-slate-50 dark:bg-slate-900 p-16">
+    <div
+      id="experience"
+      class="bg-slate-50 dark:bg-slate-900 py-16 px-6 sm:px-16"
+    >
       <section
         class="container mx-auto max-w-prose dark:prose-invert prose prose-xl"
       >

@@ -15,8 +15,13 @@ func New(s *static.Static) *View {
 }
 
 func (v *View) GeneratePages() {
-	v.pageIndex()
+	defer v.static.Done()
+	articles := v.parseArticles()
+
+	v.pageIndex(articles)
 	v.pageAbout()
 
-	v.static.Done()
+	for _, a := range articles {
+		v.pageArticle(a)
+	}
 }

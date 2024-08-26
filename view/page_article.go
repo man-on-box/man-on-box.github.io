@@ -1,30 +1,31 @@
 package view
 
 import (
-	"html/template"
+	"fmt"
 
 	"github.com/man-on-box/man-on-box.github.io/view/components"
 )
 
-type aboutData struct {
+type articleData struct {
 	Head    components.Head
 	NavMenu components.NavMenu
 	Contact components.Contact
 	Footer  components.Footer
-	Content template.HTML
+	Article article
 }
 
-func (v *View) pageAbout() {
-	data := aboutData{
+func (v *View) pageArticle(a article) {
+	data := articleData{
 		Head: components.Head{
-			Title: "About Oli",
-			Desc:  "A short and personal piece about my journey into Web Development.",
+			Title: a.Title,
+			Desc:  a.Desc,
 		},
 		NavMenu: components.NewNavMenu(),
 		Contact: components.NewContact(),
 		Footer:  components.NewFooter(),
-		Content: v.static.MdFileToHTML("content/about.md", nil),
+		Article: a,
 	}
 
-	v.static.Render("page-about", "/about.html", data)
+	f := fmt.Sprintf("/articles/%s.html", a.Slug)
+	v.static.Render("page-article", f, data)
 }
