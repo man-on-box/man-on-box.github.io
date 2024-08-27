@@ -39,7 +39,7 @@ This means you're going to need a server, and it's going to run Javascript too. 
 
 ## Convenience over simplicity
 
-But this isn't a problem right? I mean, it is so easy and simple to get started. Let's take a look at a couple of examples to get up and running.
+But this isn't a problem right? I mean, it is so easy and _simple_ to get started. Let's take a look at a couple of examples to get up and running.
 
 NextJs:
 

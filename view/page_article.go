@@ -17,8 +17,9 @@ type articleData struct {
 func (v *View) pageArticle(a article) {
 	data := articleData{
 		Head: components.Head{
-			Title: a.Title,
-			Desc:  a.Desc,
+			Title:  a.Title,
+			Desc:   a.Desc,
+			Social: fmt.Sprintf("https://%s%s", v.static.SiteUrl, a.Img),
 		},
 		NavMenu: components.NewNavMenu(),
 		Contact: components.NewContact(),

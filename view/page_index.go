@@ -40,8 +40,9 @@ func (v *View) pageIndex(articles []article) {
 
 	data := pageData{
 		Head: components.Head{
-			Title: "Hey, I'm Oli",
-			Desc:  "Hey I'm Oli, user-centric and product focused software engineer.",
+			Title:  "Hey, I'm Oli",
+			Desc:   "Hey I'm Oli, user-centric and product focused software engineer.",
+			Social: v.data.socialImgUrl,
 		},
 		NavMenu:  components.NewNavMenu(),
 		Contact:  components.NewContact(),

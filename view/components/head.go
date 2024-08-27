@@ -1,6 +1,7 @@
 package components
 
 type Head struct {
-	Title string
-	Desc  string
+	Title  string
+	Desc   string
+	Social string
 }
