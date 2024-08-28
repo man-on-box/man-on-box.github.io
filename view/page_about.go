@@ -17,13 +17,14 @@ type aboutData struct {
 func (v *View) pageAbout() {
 	data := aboutData{
 		Head: components.Head{
-			Title: "About Oli",
-			Desc:  "A short and personal piece about my journey into Web Development.",
+			Title:  "About Oli",
+			Desc:   "A short and personal piece about my journey into Web Development.",
+			Social: v.data.socialImgUrl,
 		},
 		NavMenu: components.NewNavMenu(),
 		Contact: components.NewContact(),
 		Footer:  components.NewFooter(),
-		Content: v.static.MdFileToHTML("content/about.md"),
+		Content: v.static.MdFileToHTML("content/about.md", nil).Html,
 	}
 
 	v.static.Render("page-about", "/about.html", data)

@@ -31,21 +31,24 @@ type pageData struct {
 	Contact    components.Contact
 	Footer     components.Footer
 	Content    template.HTML
+	Articles   []article
 	Skills     []skill
 	Experience []job
 }
 
-func (v *View) pageIndex() {
+func (v *View) pageIndex(articles []article) {
 
 	data := pageData{
 		Head: components.Head{
-			Title: "Hey, I'm Oli",
-			Desc:  "Hey I'm Oli, user-centric and product focused software engineer.",
+			Title:  "Hey, I'm Oli",
+			Desc:   "Hey I'm Oli, user-centric and product focused software engineer.",
+			Social: v.data.socialImgUrl,
 		},
-		NavMenu: components.NewNavMenu(),
-		Contact: components.NewContact(),
-		Footer:  components.NewFooter(),
-		Content: v.static.MdFileToHTML("content/home.md"),
+		NavMenu:  components.NewNavMenu(),
+		Contact:  components.NewContact(),
+		Footer:   components.NewFooter(),
+		Content:  v.static.MdFileToHTML("content/home.md", nil).Html,
+		Articles: articles,
 		Skills: []skill{
 			{
 				Title: "Frontend",
