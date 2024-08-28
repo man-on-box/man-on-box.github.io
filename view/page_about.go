@@ -24,7 +24,7 @@ func (v *View) pageAbout() {
 		NavMenu: components.NewNavMenu(),
 		Contact: components.NewContact(),
 		Footer:  components.NewFooter(),
-		Content: v.static.MdFileToHTML("content/about.md", nil),
+		Content: v.static.MdFileToHTML("content/about.md", nil).Html,
 	}
 
 	v.static.Render("page-about", "/about.html", data)

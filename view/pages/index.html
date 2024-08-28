@@ -17,8 +17,10 @@
           class="block border rounded p-5 no-underline hover:underline"
           href="/articles/{{ .Slug }}.html"
         >
-          <span class="font-bold block text-2xl">{{ .Title }}</span>
-          <small class="block">{{ .Published }}</small>
+          <span class="font-bold block text-2xl mb-2">{{ .Title }}</span>
+          <small class="block text-sm">
+            📆 {{ .Published }} ⌛ {{ .ReadTime}}
+          </small>
         </a>
         {{ end }}
       </section>

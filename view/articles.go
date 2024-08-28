@@ -15,6 +15,7 @@ type article struct {
 	Title     string
 	Slug      string
 	Img       string
+	ReadTime  string
 }
 
 type articleMeta struct {
@@ -50,20 +51,29 @@ func (v *View) parseArticles() []article {
 	articles := []article{}
 
 	for _, entry := range entries {
-		log.Println(entry.Name())
 		f := "content/articles/" + entry.Name()
 		meta := articleMeta{}
-		content := v.static.MdFileToHTML(f, &meta)
+		p := v.static.MdFileToHTML(f, &meta)
 		article := article{
-			Content:   content,
+			Content:   p.Html,
 			Desc:      meta.Desc,
 			Published: meta.getFormattedDate(),
 			Title:     meta.Title,
 			Slug:      meta.Slug,
 			Img:       meta.Img,
+			ReadTime:  estReadTime(p.WordCount),
 		}
 		articles = append(articles, article)
 	}
 
 	return articles
+}
+
+func estReadTime(words int) string {
+	wordsPerMinute := 200
+	minutes := words / wordsPerMinute
+	if minutes < 1 {
+		return "1 min read"
+	}
+	return fmt.Sprintf("%d min read", minutes)
 }

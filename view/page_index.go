@@ -47,7 +47,7 @@ func (v *View) pageIndex(articles []article) {
 		NavMenu:  components.NewNavMenu(),
 		Contact:  components.NewContact(),
 		Footer:   components.NewFooter(),
-		Content:  v.static.MdFileToHTML("content/home.md", nil),
+		Content:  v.static.MdFileToHTML("content/home.md", nil).Html,
 		Articles: articles,
 		Skills: []skill{
 			{

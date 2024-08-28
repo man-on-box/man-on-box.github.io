@@ -24,7 +24,10 @@
         </a>
         <article>
           <h1 class="mb-2">{{ .Article.Title }}</h1>
-          <span class="text-sm">{{ .Article.Published }}</span>
+          <span class="text-sm">
+            📆 {{ .Article.Published }} ⌛ {{ .Article.ReadTime}}
+          </span>
+          <p><i>{{ .Article.Desc }}</i></p>
           <img
             src="{{ .Article.Img }}"
             aria-hidden="true"
