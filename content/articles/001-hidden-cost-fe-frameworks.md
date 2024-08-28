@@ -110,7 +110,7 @@ While I do believe the developer experience is great in the moment, what I feel 
 
 ### Use the right tool for the job
 
-Don't just accept that a web framework is the default and best option when building a web app. Look at your use case. Does it need to be a Single Page Application? Do you need such a level of client side interaction? Could you achieve something similar using something like HTMX and any language of your choice to generate the pages?
+Don't just accept that a web framework is the default and best option when building a web app. Look at your use case. Does it need to be a Single Page Application? Do you need such a level of client side interaction? Could you achieve something similar using something like [HTMX](https://htmx.org/) and any language of your choice to generate the pages?
 
 ### Keep things simple
 
