@@ -2,7 +2,7 @@
 title: Hidden cost of frontend frameworks
 slug: hidden-cost-of-frontend-frameworks
 published: 29/08/2024
-img: /img/article/001.svg
+img: /img/article/001.png
 description: |
   In this little series I attempt to organise some thoughts of what I've seen, experienced and learned over the past few years of working as a frontend developer in a large company, with dozens of web applications, scaling from tens to thousands of daily active users.
 ---
