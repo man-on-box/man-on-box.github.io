@@ -1,6 +1,7 @@
 package view
 
 import (
+	"fmt"
 	"html/template"
 
 	"github.com/man-on-box/man-on-box.github.io/view/components"
@@ -40,9 +41,10 @@ func (v *View) pageIndex(articles []article) {
 
 	data := pageData{
 		Head: components.Head{
-			Title:  "Hey, I'm Oli",
-			Desc:   "Hey I'm Oli, user-centric and product focused software engineer.",
-			Social: v.data.socialImgUrl,
+			Title:   "Hey, I'm Oli",
+			Desc:    "Hey I'm Oli, user-centric and product focused software engineer.",
+			Social:  v.data.socialImgUrl,
+			PageUrl: fmt.Sprintf("https://%s", v.static.SiteUrl),
 		},
 		NavMenu:  components.NewNavMenu(),
 		Contact:  components.NewContact(),

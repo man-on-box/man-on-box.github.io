@@ -1,6 +1,7 @@
 package view
 
 import (
+	"fmt"
 	"html/template"
 
 	"github.com/man-on-box/man-on-box.github.io/view/components"
@@ -17,9 +18,10 @@ type aboutData struct {
 func (v *View) pageAbout() {
 	data := aboutData{
 		Head: components.Head{
-			Title:  "About Oli",
-			Desc:   "A short and personal piece about my journey into Web Development.",
-			Social: v.data.socialImgUrl,
+			Title:   "About Oli",
+			Desc:    "A short and personal piece about my journey into web development.",
+			Social:  v.data.socialImgUrl,
+			PageUrl: fmt.Sprintf("https://%s/about", v.static.SiteUrl),
 		},
 		NavMenu: components.NewNavMenu(),
 		Contact: components.NewContact(),
