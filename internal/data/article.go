@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/man-on-box/man-on-box.github.io/internal/helpers"
+	"github.com/man-on-box/man-on-box.github.io/internal/util"
 )
 
 const dateFormat = "02/01/2006"
@@ -75,7 +75,7 @@ func (d *Data) GetArticles() []Article {
 	for _, entry := range entries {
 		f := "content/articles/" + entry.Name()
 		meta := ArticleMeta{}
-		p := helpers.MdFileToHTML(f, &meta)
+		p := util.MdFileToHTML(f, &meta)
 		article := Article{
 			Content:   p.Html,
 			Desc:      meta.Desc,

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"html/template"
 
-	"github.com/man-on-box/man-on-box.github.io/internal/helpers"
+	"github.com/man-on-box/man-on-box.github.io/internal/util"
 )
 
 type PageAbout struct {
@@ -21,6 +21,6 @@ func (d *Data) NewPageAbout() PageAbout {
 
 	return PageAbout{
 		PageData: pageData,
-		Content:  helpers.MdFileToHTML("content/about.md", nil).Html,
+		Content:  util.MdFileToHTML("content/about.md", nil).Html,
 	}
 }

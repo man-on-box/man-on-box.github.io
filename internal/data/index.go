@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"html/template"
 
-	"github.com/man-on-box/man-on-box.github.io/internal/helpers"
+	"github.com/man-on-box/man-on-box.github.io/internal/util"
 )
 
 type SkillItem struct {
@@ -43,7 +43,7 @@ func (d *Data) NewPageIndex(articles *[]Article) PageIndex {
 
 	return PageIndex{
 		PageData: pageData,
-		Content:  helpers.MdFileToHTML("content/home.md", nil).Html,
+		Content:  util.MdFileToHTML("content/home.md", nil).Html,
 		Articles: articles,
 		Skills: []Skill{
 			{
