@@ -5,7 +5,6 @@ import (
 )
 
 func main() {
-	// litepage.New
 	pages := pages.New(pages.Config{
 		DistDir: "dist",
 		Domain:  "manonbox.io",

@@ -1,6 +1,6 @@
 ---
 title: Hidden cost of frontend frameworks
-slug: hidden-cost-of-frontend-frameworks-foo
+slug: hidden-cost-of-frontend-frameworks
 published: 29/08/2024
 img: /img/article/001.png
 description: |
