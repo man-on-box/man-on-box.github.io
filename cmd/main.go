@@ -1,16 +1,13 @@
 package main
 
 import (
-	"github.com/man-on-box/man-on-box.github.io/static"
-	"github.com/man-on-box/man-on-box.github.io/view"
+	"github.com/man-on-box/man-on-box.github.io/internal/pages"
 )
 
 func main() {
-	distDir := "dist"
-	siteUrl := "manonbox.io"
-
-	s := static.New(distDir, siteUrl)
-	v := view.New(s)
-
-	v.GeneratePages()
+	pages := pages.New(pages.Config{
+		DistDir: "dist",
+		Domain:  "manonbox.io",
+	})
+	pages.Build()
 }

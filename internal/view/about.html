@@ -1,17 +1,17 @@
 {{ define "page-about" }}
 <!doctype html>
 <html lang="en" class="scroll-smooth">
-  {{ template "head" .Head}}
+  {{ template "head" .PageData.Head}}
   <body class="antialiased">
-    {{ template "nav-menu" .NavMenu }} {{ template "hero" }}
+    {{ template "nav-menu" .PageData.NavMenu }} {{ template "hero" }}
     <div class="bg-slate-50 dark:bg-slate-900 p-16 px-6 sm:px-16">
       <section
         class="container mx-auto max-w-prose prose dark:prose-invert prose-xl"
       >
-        {{ .Content }} {{ template "contact" .Contact}}
+        {{ .Content }} {{ template "contact" .PageData.Contact}}
       </section>
     </div>
-    {{ template "footer" .Footer }}
+    {{ template "footer" .PageData.Footer }}
   </body>
 </html>
 {{ end }}

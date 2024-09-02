@@ -1,61 +1,28 @@
-package view
+package data
 
 import (
 	"fmt"
-	"html/template"
 
-	"github.com/man-on-box/man-on-box.github.io/view/components"
+	"github.com/man-on-box/man-on-box.github.io/internal/helpers"
+	"github.com/man-on-box/man-on-box.github.io/internal/model"
 )
 
-type item struct {
-	Label string
-	Badge string
-}
+func (d *Data) NewPageIndex(articles *[]model.Article) model.PageIndex {
+	pageData := newPageData()
+	pageData.Head.Title = "Hey, I'm Oli"
+	pageData.Head.Desc = "Hey I'm Oli, user-centric and product focused software engineer."
+	pageData.Head.Social = fmt.Sprintf("https://%s/img/social.png", d.SiteDomain)
+	pageData.Head.PageUrl = fmt.Sprintf("https://%s", d.SiteDomain)
 
-type skill struct {
-	Title string
-	Color string
-	Items []item
-}
-
-type job struct {
-	Title       string
-	Company     string
-	Date        string
-	Location    string
-	Description []string
-}
-
-type pageData struct {
-	Head       components.Head
-	NavMenu    components.NavMenu
-	Contact    components.Contact
-	Footer     components.Footer
-	Content    template.HTML
-	Articles   []article
-	Skills     []skill
-	Experience []job
-}
-
-func (v *View) pageIndex(articles []article) {
-
-	data := pageData{
-		Head: components.Head{
-			Title:   "Hey, I'm Oli",
-			Desc:    "Hey I'm Oli, user-centric and product focused software engineer.",
-			Social:  v.data.socialImgUrl,
-			PageUrl: fmt.Sprintf("https://%s", v.static.SiteUrl),
-		},
-		NavMenu:  components.NewNavMenu(),
-		Contact:  components.NewContact(),
-		Footer:   components.NewFooter(),
-		Content:  v.static.MdFileToHTML("content/home.md", nil).Html,
+	return model.PageIndex{
+		PageData: pageData,
+		Content:  helpers.MdFileToHTML("content/home.md", nil).Html,
 		Articles: articles,
-		Skills: []skill{
+		Skills: []model.Skill{
 			{
 				Title: "Frontend",
 				Color: "pink",
-				Items: []item{
+				Items: []model.SkillItem{
 					{Label: "Javascript", Badge: "JS"},
 					{Label: "Typescript", Badge: "TS"},
 					{Label: "React", Badge: "</>"},
@@ -75,7 +42,7 @@ func (v *View) pageIndex(articles []article) {
 			{
 				Title: "Backend",
 				Color: "cyan",
-				Items: []item{
+				Items: []model.SkillItem{
 					{Label: "Golang", Badge: "GO"},
 					{Label: "NodeJs", Badge: "{ }"},
 					{Label: "Express", Badge: "{ }"},
@@ -87,7 +54,7 @@ func (v *View) pageIndex(articles []article) {
 			{
 				Title: "DevOps",
 				Color: "amber",
-				Items: []item{
+				Items: []model.SkillItem{
 					{Label: "Amazon Web Services", Badge: "AWS"},
 					{Label: "Linux Administation", Badge: "$_"},
 					{Label: "Windows Server", Badge: "C:\\"},
@@ -98,7 +65,7 @@ func (v *View) pageIndex(articles []article) {
 				},
 			},
 		},
-		Experience: []job{
+		Experience: []model.Job{
 			{
 				Title:    "Lead Frontend Developer",
 				Company:  "Adevinta",
@@ -144,6 +111,4 @@ func (v *View) pageIndex(articles []article) {
 			},
 		},
 	}
-
-	v.static.Render("page-home", "/index.html", data)
 }

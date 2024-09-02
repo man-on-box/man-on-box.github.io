@@ -2,7 +2,7 @@ module.exports = {
   content: ["./**/*.html"],
   theme: {
     fontFamily: {
-      sans: ["Wittgenstein", "sans-serif"],
+      sans: ["Roboto Slab", "sans-serif"],
     },
   },
   plugins: [require("@tailwindcss/typography")],

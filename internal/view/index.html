@@ -1,9 +1,9 @@
-{{ define "page-home" }}
+{{ define "page-index" }}
 <!doctype html>
 <html lang="en" class="scroll-smooth">
-  {{ template "head" .Head}}
+  {{ template "head" .PageData.Head}}
   <body class="antialiased">
-    {{ template "nav-menu" .NavMenu }} {{ template "hero" }}
+    {{ template "nav-menu" .PageData.NavMenu }} {{ template "hero" }}
     <div class="bg-slate-50 dark:bg-slate-900 py-16 px-6 sm:px-16">
       <section
         class="container mx-auto max-w-prose prose dark:prose-invert prose-xl"
@@ -46,7 +46,7 @@
               aria-hidden="true"
               >{{ .Badge }}</span
             >
-            <span class="text-xl">{{ .Label }}</span>
+            <span class="text-xl tracking-tight">{{ .Label }}</span>
           </div>
 
           {{ end }}
@@ -72,10 +72,10 @@
         <p>{{ . }}</p>
         {{ end }}
         <hr />
-        {{ end }} {{ template "contact" .Contact}}
+        {{ end }} {{ template "contact" .PageData.Contact}}
       </section>
     </div>
-    {{ template "footer" .Footer }}
+    {{ template "footer" .PageData.Footer }}
   </body>
 </html>
 {{ end }}
