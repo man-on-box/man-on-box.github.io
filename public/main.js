@@ -21,21 +21,12 @@
 
 (function DarkToggle() {
   const root = document.documentElement;
-  const toggleBtn = document.getElementById("dark-toggle");
-  const key = "color-scheme";
-  const prefersDark =
-    window &&
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const userPreference = localStorage.getItem(key);
-  let isDark = userPreference !== "light" && prefersDark;
-  if (isDark) {
-    root.classList.add("dark");
-  }
+  let isDark = root.classList.contains("dark");
 
+  const toggleBtn = document.getElementById("dark-toggle");
   toggleBtn.addEventListener("click", () => {
     isDark = !isDark;
     root.classList.toggle("dark");
-    localStorage.setItem(key, isDark ? "dark" : "light");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
   });
 })();

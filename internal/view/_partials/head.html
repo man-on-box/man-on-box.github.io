@@ -26,6 +26,16 @@
     href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap"
     rel="stylesheet"
   />
+  <script>
+    const prefersDark =
+      window &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const userPreference = localStorage.getItem("theme");
+    if (userPreference !== "light" && prefersDark) {
+      document.documentElement.classList.add("dark");
+    }
+  </script>
   <script defer src="/main.js"></script>
   <title>{{.Title}}</title>
 </head>
