@@ -1,12 +1,21 @@
-package static
+package helpers
 
 import (
 	"io"
+	"log"
 	"os"
 	"path/filepath"
 )
 
-func copyFile(src string, dst string) error {
+func CreateFile(fileName string) *os.File {
+	f, err := os.Create(fileName)
+	if err != nil {
+		log.Fatalf("Could not create file: %v", err)
+	}
+	return f
+}
+
+func CopyFile(src string, dst string) error {
 	srcFile, err := os.Open(src)
 	if err != nil {
 		return err
@@ -27,7 +36,7 @@ func copyFile(src string, dst string) error {
 	return nil
 }
 
-func copyDir(src string, dst string) error {
+func CopyDir(src string, dst string) error {
 	src = filepath.Clean(src)
 	dst = filepath.Clean(dst)
 
@@ -45,11 +54,11 @@ func copyDir(src string, dst string) error {
 		dstPath := filepath.Join(dst, entry.Name())
 
 		if entry.IsDir() {
-			if err := copyDir(srcPath, dstPath); err != nil {
+			if err := CopyDir(srcPath, dstPath); err != nil {
 				return err
 			}
 		} else {
-			if err := copyFile(srcPath, dstPath); err != nil {
+			if err := CopyFile(srcPath, dstPath); err != nil {
 				return err
 			}
 		}
