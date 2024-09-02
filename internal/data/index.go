@@ -2,27 +2,54 @@ package data
 
 import (
 	"fmt"
+	"html/template"
 
 	"github.com/man-on-box/man-on-box.github.io/internal/helpers"
-	"github.com/man-on-box/man-on-box.github.io/internal/model"
 )
 
-func (d *Data) NewPageIndex(articles *[]model.Article) model.PageIndex {
+type SkillItem struct {
+	Label string
+	Badge string
+}
+
+type Skill struct {
+	Title string
+	Color string
+	Items []SkillItem
+}
+
+type Job struct {
+	Title       string
+	Company     string
+	Date        string
+	Location    string
+	Description []string
+}
+
+type PageIndex struct {
+	PageData
+	Content    template.HTML
+	Articles   *[]Article
+	Skills     []Skill
+	Experience []Job
+}
+
+func (d *Data) NewPageIndex(articles *[]Article) PageIndex {
 	pageData := newPageData()
 	pageData.Head.Title = "Hey, I'm Oli"
 	pageData.Head.Desc = "Hey I'm Oli, user-centric and product focused software engineer."
 	pageData.Head.Social = fmt.Sprintf("https://%s/img/social.png", d.SiteDomain)
 	pageData.Head.PageUrl = fmt.Sprintf("https://%s", d.SiteDomain)
 
-	return model.PageIndex{
+	return PageIndex{
 		PageData: pageData,
 		Content:  helpers.MdFileToHTML("content/home.md", nil).Html,
 		Articles: articles,
-		Skills: []model.Skill{
+		Skills: []Skill{
 			{
 				Title: "Frontend",
 				Color: "pink",
-				Items: []model.SkillItem{
+				Items: []SkillItem{
 					{Label: "Javascript", Badge: "JS"},
 					{Label: "Typescript", Badge: "TS"},
 					{Label: "React", Badge: "</>"},
@@ -42,7 +69,7 @@ func (d *Data) NewPageIndex(articles *[]model.Article) model.PageIndex {
 			{
 				Title: "Backend",
 				Color: "cyan",
-				Items: []model.SkillItem{
+				Items: []SkillItem{
 					{Label: "Golang", Badge: "GO"},
 					{Label: "NodeJs", Badge: "{ }"},
 					{Label: "Express", Badge: "{ }"},
@@ -54,9 +81,9 @@ func (d *Data) NewPageIndex(articles *[]model.Article) model.PageIndex {
 			{
 				Title: "DevOps",
 				Color: "amber",
-				Items: []model.SkillItem{
+				Items: []SkillItem{
 					{Label: "Amazon Web Services", Badge: "AWS"},
-					{Label: "Linux Administation", Badge: "$_"},
+					{Label: "Linux", Badge: "$_"},
 					{Label: "Windows Server", Badge: "C:\\"},
 					{Label: "Git", Badge: "{ }"},
 					{Label: "Github Actions", Badge: "GHA"},
@@ -65,7 +92,7 @@ func (d *Data) NewPageIndex(articles *[]model.Article) model.PageIndex {
 				},
 			},
 		},
-		Experience: []model.Job{
+		Experience: []Job{
 			{
 				Title:    "Lead Frontend Developer",
 				Company:  "Adevinta",
