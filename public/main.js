@@ -1,7 +1,7 @@
 (function NavToggle() {
   const navBtn = document.getElementById("nav-btn");
   const navMenu = document.getElementById("nav-menu");
-  const navLinks = document.querySelectorAll(".nav-link");
+  const navLinks = document.querySelectorAll("nav .nav-link");
 
   navBtn.addEventListener("click", () => {
     toggleNav();
