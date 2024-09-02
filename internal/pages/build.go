@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/man-on-box/man-on-box.github.io/internal/data"
-	"github.com/man-on-box/man-on-box.github.io/internal/helpers"
+	"github.com/man-on-box/man-on-box.github.io/internal/util"
 )
 
 type Page struct {
@@ -59,14 +59,14 @@ func (p *Pages) executeTemplate(w io.Writer, name string, data any) {
 func (p *Pages) createPages() {
 	for _, page := range *p.pages {
 		fmt.Println("Creating page: ", page.filePath)
-		f := helpers.CreateFile(p.config.DistDir + page.filePath)
+		f := util.CreateFile(p.config.DistDir + page.filePath)
 		page.render(f)
 	}
 
 }
 
 func (p *Pages) generateRobotsTxt() {
-	f := helpers.CreateFile(p.config.DistDir + "/robots.txt")
+	f := util.CreateFile(p.config.DistDir + "/robots.txt")
 	content := `User-agent: *
 Disallow:
 Allow: /
@@ -78,7 +78,7 @@ Sitemap: https://%s/sitemap.xml
 }
 
 func (p *Pages) generateSitemap() {
-	f := helpers.CreateFile(p.config.DistDir + "/sitemap.xml")
+	f := util.CreateFile(p.config.DistDir + "/sitemap.xml")
 	var builder strings.Builder
 	builder.WriteString(`<?xml version="1.0" encoding="UTF-8"?>`)
 	builder.WriteString(`<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`)

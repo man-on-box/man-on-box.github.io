@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/man-on-box/man-on-box.github.io/internal/helpers"
+	"github.com/man-on-box/man-on-box.github.io/internal/util"
 )
 
 func (p *Pages) init() {
@@ -38,7 +38,7 @@ func scaffoldDistDir(distDir string) {
 }
 
 func copyPublicDir(distDir string) {
-	if err := helpers.CopyDir("public", distDir); err != nil {
+	if err := util.CopyDir("public", distDir); err != nil {
 		log.Fatalf("Could not copy public directory: %v", err)
 	}
 }
