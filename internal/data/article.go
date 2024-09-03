@@ -13,21 +13,23 @@ import (
 const dateFormat = "02/01/2006"
 
 type Article struct {
-	Content   template.HTML
-	Desc      string
-	Published string
-	Title     string
-	Slug      string
-	Img       string
-	ReadTime  string
+	Content      template.HTML
+	Desc         string
+	Published    string
+	Title        string
+	Slug         string
+	Img          string
+	ReadTime     string
+	SyndicateUrl string
 }
 
 type ArticleMeta struct {
-	Title     string `yaml:"title"`
-	Slug      string `yaml:"slug"`
-	Desc      string `yaml:"description"`
-	Img       string `yaml:"img"`
-	Published string `yaml:"published"`
+	Title        string `yaml:"title"`
+	Slug         string `yaml:"slug"`
+	Desc         string `yaml:"description"`
+	Img          string `yaml:"img"`
+	Published    string `yaml:"published"`
+	SyndicateUrl string `yaml:"syndicateUrl"`
 }
 
 type PageArticle struct {
@@ -77,13 +79,14 @@ func (d *Data) GetArticles() []Article {
 		meta := ArticleMeta{}
 		p := util.MdFileToHTML(f, &meta)
 		article := Article{
-			Content:   p.Html,
-			Desc:      meta.Desc,
-			Published: meta.GetFormattedDate(),
-			Title:     meta.Title,
-			Slug:      meta.Slug,
-			Img:       meta.Img,
-			ReadTime:  estReadTime(p.WordCount),
+			Content:      p.Html,
+			Desc:         meta.Desc,
+			Published:    meta.GetFormattedDate(),
+			Title:        meta.Title,
+			Slug:         meta.Slug,
+			Img:          meta.Img,
+			SyndicateUrl: meta.SyndicateUrl,
+			ReadTime:     estReadTime(p.WordCount),
 		}
 		articles = append(articles, article)
 	}

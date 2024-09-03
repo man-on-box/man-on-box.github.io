@@ -27,6 +27,14 @@
           <span class="text-sm">
             📆 {{ .Article.Published }} ⌛ {{ .Article.ReadTime}}
           </span>
+          {{ if .Article.SyndicateUrl }}
+          <p class="text-sm">
+            Published at
+            <a target="_blank" href="{{ .Article.SyndicateUrl}}">
+              {{ .Article.SyndicateUrl }}
+            </a>
+          </p>
+          {{ end }}
           <p><i>{{ .Article.Desc }}</i></p>
           <img
             src="{{ .Article.Img }}"
@@ -35,6 +43,14 @@
           />
           {{ .Article.Content }}
         </article>
+        {{ if .Article.SyndicateUrl }}
+        <p class="mt-16 italic">
+          To follow, discuss and comment, visit
+          <a target="_blank" href="{{ .Article.SyndicateUrl}}">
+            {{ .Article.SyndicateUrl }}
+          </a>
+        </p>
+        {{ end }}
         <hr />
         {{ template "contact" .PageData.Contact}}
       </section>

@@ -5,6 +5,7 @@ published: 29/08/2024
 img: /img/article/001.png
 description: |
   In this little series I attempt to organise some thoughts of what I've seen, experienced and learned over the past few years of working as a frontend developer in a large company, with dozens of web applications, scaling from tens to thousands of daily active users.
+syndicateUrl: https://dev.to/manonbox/hidden-cost-of-frontend-frameworks-5pi
 ---
 
 We all want our sites to look attractive and feel fast and responsive across a multitude of devices and screen sizes. There are common tools developed in the frontend eco system to help build such interfaces.
