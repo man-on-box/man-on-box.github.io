@@ -44,11 +44,13 @@
           {{ .Article.Content }}
         </article>
         {{ if .Article.SyndicateUrl }}
-        <p class="mt-16 italic">
-          To follow, discuss and comment, visit
-          <a target="_blank" href="{{ .Article.SyndicateUrl}}">
-            {{ .Article.SyndicateUrl }}
-          </a>
+        <p class="mt-16">
+          <i>
+            To follow, discuss and comment, visit
+            <a target="_blank" href="{{ .Article.SyndicateUrl}}">
+              {{ .Article.SyndicateUrl }}
+            </a>
+          </i>
         </p>
         {{ end }}
         <hr />

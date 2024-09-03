@@ -4,6 +4,7 @@ import (
 	"html/template"
 	"log"
 	"os"
+	"time"
 
 	"github.com/man-on-box/man-on-box.github.io/internal/util"
 )
@@ -20,7 +21,11 @@ func parseTemplates() *template.Template {
 		"./internal/view/**/*.html",
 	}
 
-	tmpl := template.New("")
+	tmpl := template.New("").Funcs(template.FuncMap{
+		"version": func() string {
+			return time.Now().Format("01021504")
+		},
+	})
 	var err error
 
 	for _, pattern := range patterns {
