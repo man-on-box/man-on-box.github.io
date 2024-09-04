@@ -64,13 +64,15 @@
       >
         <h2>Experience</h2>
         {{ range .Experience }}
-        <h3 class="mb-0">{{ .Title }}</h3>
-        <p class="m-0">{{ .Company }}</p>
-        <p class="m-0 text-sm">{{ .Date }}</p>
-        <p class="m-0 text-sm">{{ .Location }}</p>
-        {{ range .Description }}
-        <p>{{ . }}</p>
-        {{ end }}
+        <div class="md:border-l-4 border-pink-500 md:pl-6">
+          <h3 class="mb-0">{{ .Title }}</h3>
+          <p class="m-0">{{ .Company }}</p>
+          <p class="m-0 text-sm">{{ .Date }}</p>
+          <p class="m-0 text-sm">{{ .Location }}</p>
+          {{ range .Description }}
+          <p>{{ . }}</p>
+          {{ end }}
+        </div>
         <hr />
         {{ end }} {{ template "contact" .PageData.Contact}}
       </section>

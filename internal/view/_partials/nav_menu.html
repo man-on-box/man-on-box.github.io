@@ -1,6 +1,7 @@
 {{ define "nav-menu" }}
 <nav
   id="nav-menu"
+  aria-hidden="true"
   class="hidden bg-slate-950/90 text-slate-50 backdrop-blur z-10 border-b fixed w-svw p-20 text-2xl"
 >
   <div class="mx-auto flex gap-20">
@@ -14,10 +15,12 @@
       {{ range .Links }}
 
       <a
-        class="nav-link hover:underline decoration-pink-500 font-bold"
+        class="hover:underline decoration-pink-500 font-bold"
+        tabindex="-1"
         href="{{ .Url }}"
-        >{{ .Label }}</a
       >
+        {{ .Label }}
+      </a>
       {{ end }}
       <div class="flex gap-3">
         {{ range .Socials}}
@@ -25,6 +28,7 @@
           href="{{ .Link.Url }}"
           aria-label="{{ .Link.Label }}"
           target="_blank"
+          tabindex="-1"
         >
           <img
             src="{{ .Img }}"
@@ -73,6 +77,7 @@
     type="button"
     title="Toggle navigation menu"
     aria-label="Toggle navigation menu"
+    aria-expanded="false"
     class="bg-slate-950 hover:bg-pink-600 hover:scale-105 transition cursor-pointer h-10 md:h-14 w-10 md:w-14 rounded flex justify-center items-center"
   >
     <div class="flex flex-col gap-1 w-6">

@@ -1,5 +1,7 @@
 {{ define "footer" }}
-<footer class="bg-slate-800 text-slate-400 text-sm p-16">
+<footer
+  class="bg-slate-800 border-t-4 border-pink-500 text-slate-300 text-sm p-16"
+>
   <section class="container mx-auto max-w-5xl">
     <div class="flex justify-between">
       <div class="flex-col text-center inline-flex">
@@ -30,7 +32,7 @@
           {{ range .Links }}
 
           <a
-            class="nav-link hover:underline hover:text-white font-bold"
+            class="hover:underline hover:text-white font-bold"
             href="{{ .Url }}"
             >{{ .Label }}</a
           >
