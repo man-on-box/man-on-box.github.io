@@ -13,7 +13,9 @@
     <div class="flex flex-col gap-8 border-l-2 border-l-slate-700 pl-5">
       {{ range .Links }}
 
-      <a class="nav-link hover:underline font-bold" href="{{ .Url }}"
+      <a
+        class="nav-link hover:underline decoration-pink-500 font-bold"
+        href="{{ .Url }}"
         >{{ .Label }}</a
       >
       {{ end }}
