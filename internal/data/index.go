@@ -58,6 +58,8 @@ func (d *Data) NewPageIndex(articles *[]Article) PageIndex {
 					{Label: "Vite", Badge: "{ }"},
 					{Label: "Webpack", Badge: "{ }"},
 					{Label: "Tailwind", Badge: "{ }"},
+					{Label: "React Query", Badge: "{ }"},
+					{Label: "React Router", Badge: "{ }"},
 					{Label: "HTML", Badge: "</>"},
 					{Label: "CSS", Badge: "{ }"},
 					{Label: "SASS", Badge: "{ }"},
