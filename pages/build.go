@@ -7,8 +7,8 @@ import (
 	"log"
 	"strings"
 
-	"github.com/man-on-box/man-on-box.github.io/internal/data"
-	"github.com/man-on-box/man-on-box.github.io/internal/util"
+	"github.com/man-on-box/man-on-box.github.io/data"
+	"github.com/man-on-box/man-on-box.github.io/util"
 )
 
 type Page struct {

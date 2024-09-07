@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/man-on-box/man-on-box.github.io/internal/pages"
+	"github.com/man-on-box/man-on-box.github.io/pages"
 )
 
 func main() {

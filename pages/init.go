@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/man-on-box/man-on-box.github.io/internal/util"
+	"github.com/man-on-box/man-on-box.github.io/util"
 )
 
 func (p *Pages) init() {
@@ -17,8 +17,8 @@ func (p *Pages) init() {
 
 func parseTemplates() *template.Template {
 	patterns := []string{
-		"./internal/view/*.html",
-		"./internal/view/**/*.html",
+		"./view/*.html",
+		"./view/**/*.html",
 	}
 
 	tmpl := template.New("").Funcs(template.FuncMap{

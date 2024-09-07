@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/man-on-box/man-on-box.github.io/internal/util"
+	"github.com/man-on-box/man-on-box.github.io/util"
 )
 
 const dateFormat = "02/01/2006"
