@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"html/template"
 
-	"github.com/man-on-box/man-on-box.github.io/internal/util"
+	"github.com/man-on-box/man-on-box.github.io/util"
 )
 
 type SkillItem struct {
