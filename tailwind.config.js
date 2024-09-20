@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./view/**/*.html"],
+  content: ["./view/**/*.html", "./data/**/*.go"],
   darkMode: "selector",
   theme: {
     fontFamily: {

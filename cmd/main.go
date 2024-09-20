@@ -6,8 +6,7 @@ import (
 
 func main() {
 	pages := pages.New(pages.Config{
-		DistDir: "dist",
-		Domain:  "manonbox.io",
+		Domain: "manonbox.io",
 	})
-	pages.Build()
+	pages.Create()
 }

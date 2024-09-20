@@ -1,0 +1,136 @@
+[
+  {
+    "title": "Frontend",
+    "color": "pink",
+    "items": [
+      {
+        "label": "Javascript",
+        "badge": "JS"
+      },
+      {
+        "label": "Typescript",
+        "badge": "TS"
+      },
+      {
+        "label": "React",
+        "badge": "</>"
+      },
+      {
+        "label": "Astro",
+        "badge": "</>"
+      },
+      {
+        "label": "HTMX",
+        "badge": "</>"
+      },
+      {
+        "label": "Vite",
+        "badge": "{ }"
+      },
+      {
+        "label": "Webpack",
+        "badge": "{ }"
+      },
+      {
+        "label": "Tailwind",
+        "badge": "{ }"
+      },
+      {
+        "label": "React Query",
+        "badge": "{ }"
+      },
+      {
+        "label": "React Router",
+        "badge": "{ }"
+      },
+      {
+        "label": "HTML",
+        "badge": "</>"
+      },
+      {
+        "label": "CSS",
+        "badge": "{ }"
+      },
+      {
+        "label": "SASS",
+        "badge": "{ }"
+      },
+      {
+        "label": "React Testing Library",
+        "badge": "</>"
+      },
+      {
+        "label": "Jest",
+        "badge": "{ }"
+      },
+      {
+        "label": "Cypress",
+        "badge": "{ }"
+      }
+    ]
+  },
+  {
+    "title": "Backend",
+    "color": "cyan",
+    "items": [
+      {
+        "label": "Node",
+        "badge": "{ }"
+      },
+      {
+        "label": "Golang",
+        "badge": "GO"
+      },
+      {
+        "label": "Express",
+        "badge": "{ }"
+      },
+      {
+        "label": "Postgres",
+        "badge": "{ }"
+      },
+      {
+        "label": "Redis",
+        "badge": "{ }"
+      },
+      {
+        "label": "oAuth",
+        "badge": "{ }"
+      }
+    ]
+  },
+  {
+    "title": "DevOps",
+    "color": "amber",
+    "items": [
+      {
+        "label": "Amazon Web Services",
+        "badge": "AWS"
+      },
+      {
+        "label": "Linux",
+        "badge": "$_"
+      },
+      {
+        "label": "Windows Server",
+        "badge": "C:\\"
+      },
+      {
+        "label": "Git",
+        "badge": "{ }"
+      },
+      {
+        "label": "Github Actions",
+        "badge": "{ }"
+      },
+      {
+        "label": "Travis",
+        "badge": "{ }"
+      },
+      {
+        "label": "Docker",
+        "badge": "{ }"
+      }
+    ]
+  }
+]
