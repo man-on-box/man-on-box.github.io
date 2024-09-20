@@ -54,12 +54,22 @@ npm install
 
 ### Start server
 
+To serve the static site at http://localhost:3000:
+
+```
+make serve
+```
+
+To build the static site, ready to be deployed:
+
+```
+make build
+```
+
 For development, build the project and watch for changes with:
 
 ```
 make dev
 ```
 
-This re-compiles the project at any change and updates the `/dist` folder.
-
-The project intentionally does not contain a web service, you can use whatever service you like to host files from `/dist` directory. If you want to have hot reloading, you can use something like [Live server](https://www.npmjs.com/package/live-server). If you install this you can run `make live-server` to automatically host the site locally and refresh on changes.
+This re-compiles the project and reloads the page when making changes. [Air](https://github.com/air-verse/air) is required to support this functionality.
