@@ -7,7 +7,7 @@ import (
 	"github.com/man-on-box/man-on-box.github.io/util"
 )
 
-type PageAbout struct {
+type pageAbout struct {
 	PageData
 	Content template.HTML
 }
@@ -17,7 +17,7 @@ type aboutMeta struct {
 	Desc  string `yaml:"description"`
 }
 
-func (d *Data) NewPageAbout() PageAbout {
+func (d *Data) NewPageAbout() pageAbout {
 	meta := aboutMeta{}
 	p := util.MdFileToHTML("content/about/content.md", &meta)
 
@@ -27,7 +27,7 @@ func (d *Data) NewPageAbout() PageAbout {
 	pageData.Head.Social = fmt.Sprintf("https://%s/img/social.png", d.SiteDomain)
 	pageData.Head.PageUrl = fmt.Sprintf("https://%s/about", d.SiteDomain)
 
-	return PageAbout{
+	return pageAbout{
 		PageData: pageData,
 		Content:  p.Html,
 	}

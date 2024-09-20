@@ -7,10 +7,10 @@ import (
 	"github.com/man-on-box/man-on-box.github.io/util"
 )
 
-type PageIndex struct {
+type pageIndex struct {
 	PageData
 	Content    template.HTML
-	Articles   *[]Article
+	Articles   *[]article
 	Skills     []skillView
 	Experience []job
 }
@@ -58,7 +58,7 @@ var badgeClassMap = map[string]string{
 	"cyan":  "text-cyan-600",
 }
 
-func (d *Data) NewPageIndex(articles *[]Article) PageIndex {
+func (d *Data) NewPageIndex(articles *[]article) pageIndex {
 	pageData := newPageData()
 	meta := homeMeta{}
 	p := util.MdFileToHTML("content/home/content.md", &meta)
@@ -84,7 +84,7 @@ func (d *Data) NewPageIndex(articles *[]Article) PageIndex {
 	experience := []job{}
 	util.ParseJSONFile("content/home/experience.json", &experience)
 
-	return PageIndex{
+	return pageIndex{
 		PageData:   pageData,
 		Content:    p.Html,
 		Articles:   articles,

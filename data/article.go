@@ -12,7 +12,7 @@ import (
 
 const dateFormat = "02/01/2006"
 
-type Article struct {
+type article struct {
 	Content      template.HTML
 	Desc         string
 	Published    string
@@ -23,7 +23,7 @@ type Article struct {
 	SyndicateUrl string
 }
 
-type ArticleMeta struct {
+type articleMeta struct {
 	Title        string `yaml:"title"`
 	Slug         string `yaml:"slug"`
 	Desc         string `yaml:"description"`
@@ -32,12 +32,12 @@ type ArticleMeta struct {
 	SyndicateUrl string `yaml:"syndicateUrl"`
 }
 
-type PageArticle struct {
+type pageArticle struct {
 	PageData
-	Article *Article
+	Article *article
 }
 
-func (a *ArticleMeta) getTime() time.Time {
+func (a *articleMeta) getTime() time.Time {
 	t, err := time.Parse(dateFormat, a.Published)
 	if err != nil {
 		log.Fatalf("Error parsing date '%s' in article '%s': %v", a.Published, a.Title, err)
@@ -45,13 +45,13 @@ func (a *ArticleMeta) getTime() time.Time {
 	return t
 }
 
-func (a *ArticleMeta) GetFormattedDate() string {
+func (a *articleMeta) getFormattedDate() string {
 	t := a.getTime()
 	year, month, day := t.Date()
 	return fmt.Sprintf("%d %s, %d", day, month, year)
 }
 
-func (d *Data) NewPageArticle(a *Article) PageArticle {
+func (d *Data) NewPageArticle(a *article) pageArticle {
 	urlPath := fmt.Sprintf("/articles/%s", a.Slug)
 
 	pageData := newPageData()
@@ -60,28 +60,28 @@ func (d *Data) NewPageArticle(a *Article) PageArticle {
 	pageData.Head.Social = fmt.Sprintf("https://%s%s", d.SiteDomain, a.Img)
 	pageData.Head.PageUrl = fmt.Sprintf("https://%s%s", d.SiteDomain, urlPath)
 
-	return PageArticle{
+	return pageArticle{
 		PageData: pageData,
 		Article:  a,
 	}
 }
 
-func (d *Data) GetArticles() []Article {
+func (d *Data) GetArticles() []article {
 	entries, err := os.ReadDir("content/articles")
 	if err != nil {
 		log.Fatalf("Error reading articles directory: %v", err)
 	}
 
-	articles := []Article{}
+	articles := []article{}
 
 	for _, entry := range entries {
 		f := "content/articles/" + entry.Name()
-		meta := ArticleMeta{}
+		meta := articleMeta{}
 		p := util.MdFileToHTML(f, &meta)
-		article := Article{
+		article := article{
 			Content:      p.Html,
 			Desc:         meta.Desc,
-			Published:    meta.GetFormattedDate(),
+			Published:    meta.getFormattedDate(),
 			Title:        meta.Title,
 			Slug:         meta.Slug,
 			Img:          meta.Img,

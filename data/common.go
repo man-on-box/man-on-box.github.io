@@ -10,7 +10,7 @@ const (
 	GITHUB_REPO_URL = "https://github.com/man-on-box/man-on-box.github.io"
 )
 
-var navLinks = []Link{
+var navLinks = []link{
 	{Label: "Home", Url: "/"},
 	{Label: "About", Url: "/about.html"},
 	{Label: "Articles", Url: "/#articles"},
@@ -19,76 +19,76 @@ var navLinks = []Link{
 	{Label: "Contact", Url: "/#contact"},
 }
 
-var socials = []Social{
-	{Img: "/img/linkedin-logo.svg", Alt: "LinkedIn", Link: Link{Url: LINKEDIN_URL, Label: "LinkedIn"}},
-	{Img: "/img/github-logo.svg", Alt: "Github", Link: Link{Url: GITHUB_URL, Label: "Github"}},
+var socials = []social{
+	{Img: "/img/linkedin-logo.svg", Alt: "LinkedIn", Link: link{Url: LINKEDIN_URL, Label: "LinkedIn"}},
+	{Img: "/img/github-logo.svg", Alt: "Github", Link: link{Url: GITHUB_URL, Label: "Github"}},
 }
 
 type PageData struct {
-	Head    Head
-	NavMenu NavMenu
-	Contact Contact
-	Footer  Footer
+	Head    head
+	NavMenu navMenu
+	Contact contact
+	Footer  footer
 }
 
-type Link struct {
+type link struct {
 	Url   string
 	Label string
 }
 
-type Social struct {
+type social struct {
 	Img  string
 	Alt  string
-	Link Link
+	Link link
 }
 
-type NavMenu struct {
-	Links   []Link
-	Socials []Social
+type navMenu struct {
+	Links   []link
+	Socials []social
 }
 
-type Contact struct {
-	Socials []Social
+type contact struct {
+	Socials []social
 }
 
-type Head struct {
+type head struct {
 	Title   string
 	Desc    string
 	Social  string
 	PageUrl string
 }
 
-type Footer struct {
-	Links       []Link
-	Socials     []Social
+type footer struct {
+	Links       []link
+	Socials     []social
 	RepoUrl     string
 	CurrentYear int
 }
 
 func newPageData() PageData {
 	return PageData{
-		Head:    Head{},
+		Head:    head{},
 		NavMenu: newNavMenu(),
 		Contact: newContact(),
 		Footer:  newFooter(),
 	}
 }
 
-func newNavMenu() NavMenu {
-	return NavMenu{
+func newNavMenu() navMenu {
+	return navMenu{
 		Links:   navLinks,
 		Socials: socials,
 	}
 }
 
-func newContact() Contact {
-	return Contact{
+func newContact() contact {
+	return contact{
 		Socials: socials,
 	}
 }
 
-func newFooter() Footer {
-	return Footer{
+func newFooter() footer {
+	return footer{
 		Links:       navLinks,
 		Socials:     socials,
 		RepoUrl:     GITHUB_REPO_URL,
