@@ -4,8 +4,8 @@ dist
 node_modules
 .eslintcache
 .idea
+tmp
 
 # Ignore compiled CSS, it is created at build time
-static/**/**.css*
-tmp
+public/main.css
 

@@ -8,6 +8,11 @@ import (
 )
 
 func CreateFile(fileName string) *os.File {
+	dir := filepath.Dir(fileName)
+	if err := os.MkdirAll(dir, 0755); err != nil {
+		log.Fatalf("Could not create directory: %v", err)
+	}
+
 	f, err := os.Create(fileName)
 	if err != nil {
 		log.Fatalf("Could not create file: %v", err)
@@ -65,4 +70,13 @@ func CopyDir(src string, dst string) error {
 	}
 
 	return nil
+}
+
+func RemoveDir(dir string) {
+	if _, err := os.Stat(dir); os.IsNotExist(err) {
+		return
+	}
+	if err := os.RemoveAll(dir); err != nil {
+		log.Fatalf("Could not remove directory: %v", err)
+	}
 }

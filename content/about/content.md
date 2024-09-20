@@ -1,3 +1,8 @@
+---
+title: About Oli
+description: A short and personal piece about my journey into software engineering.
+---
+
 ## About
 
 I'm a self taught developer from Manchester, UK, currently living in Barcelona, Spain.

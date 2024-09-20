@@ -1,4 +1,4 @@
-{{ define "page-index" }}
+Badge{{ define "page-index" }}
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   {{ template "head" .PageData.Head}}
@@ -31,21 +31,22 @@
       >
         <h2>Skills</h2>
         <p>These are not exhaustive lists, but give an idea of my profile.</p>
-        {{ range .Skills}} {{ $color := .Color }}
-
+        {{ range .Skills}} {{ $boxClasses := .BoxClasses }} {{ $badgeClasses:=
+        .BadgeClasses }}
         <h3>{{ .Title }}</h3>
         <div
           class="flex lg:flex-wrap pb-10 lg:overflow-visible lg:w-full w-screen pr-36 lg:pr-0 overflow-x-auto snap-x gap-4"
         >
           {{ range .Items }}
           <div
-            class="flex-none border-2 border-{{ $color }}-800 hover:border-{{ $color }}-500 shadow-2xl shadow-{{ $color }}-800/60 hover:shadow-{{ $color }}-800 lg:hover:scale-105 transition text-white text-center w-40 rounded-sm px-4 py-6 snap-start scroll-m-6"
+            class="{{ $boxClasses }} flex-none border-2 shadow-2xl lg:hover:scale-105 transition text-white text-center w-40 rounded-sm px-4 py-6 snap-start scroll-m-6"
           >
             <span
-              class="block text-{{ $color }}-600 font-bold mb-8 text-3xl"
+              class="{{ $badgeClasses }} block font-bold mb-8 text-3xl"
               aria-hidden="true"
-              >{{ .Badge }}</span
             >
+              {{ .Badge }}
+            </span>
             <span class="text-xl tracking-tight">{{ .Label }}</span>
           </div>
 

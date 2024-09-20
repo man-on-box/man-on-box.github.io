@@ -1,13 +1,13 @@
 dev:
 	@echo "Starting dev mode"
-	APP_ENV="pre" air & \
-		npx tailwind -i ./style/main.css -o ./dist/main.css --watch
+	@npx tailwind -i ./style/main.css -o ./public/main.css --watch & \
+		air
 
-live-server:
-	@echo "Starting dev server (live-server required)"
-	@npx live-server ./dist --watch ./dist
+serve:
+	@npx tailwind -i ./style/main.css -o ./public/main.css & \
+		go run cmd/main.go -dev -port 3000
 
 build:
 	@echo "Building for prod"
-	APP_ENV="pro" go run cmd/main.go
+	@go run cmd/main.go
 	@npx tailwind -i ./style/main.css -o ./dist/main.css --minify
