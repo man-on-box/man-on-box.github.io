@@ -5,7 +5,7 @@ dev:
 
 serve:
 	@npx tailwind -i ./style/main.css -o ./public/main.css & \
-		go run cmd/main.go -dev -port 3000
+		go run cmd/main.go -lp-serve -lp-port 3000
 
 build:
 	@echo "Building for prod"
