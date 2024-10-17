@@ -11,7 +11,7 @@ import (
 	"github.com/man-on-box/man-on-box.github.io/data"
 )
 
-func SetupPages(lp *litepage.Litepage, data *data.Data) {
+func SetupPages(lp litepage.Litepage, data *data.Data) {
 	tmpl := parseTemplates()
 	mustRender := createMustRender(tmpl)
 

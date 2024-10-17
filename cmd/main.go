@@ -19,6 +19,6 @@ func main() {
 
 	pages.SetupPages(lp, data)
 
-	lp.Run()
+	lp.BuildOrServe()
 
 }
