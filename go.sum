@@ -6,6 +6,8 @@ github.com/man-on-box/litepage v0.0.0-20241005153917-30d2bb8a1ae1 h1:7Di5E8oKCM2
 github.com/man-on-box/litepage v0.0.0-20241005153917-30d2bb8a1ae1/go.mod h1:tMPX42Hmuf6EhOSNtupypYRB4ti9o1GEBMblJ84qKRU=
 github.com/man-on-box/litepage v0.0.0-20241017202659-8fff45a9bfd6 h1:vW+aqQ009tKg2agJpjEWkqkYosD3wCxCRsmi1rIyGNw=
 github.com/man-on-box/litepage v0.0.0-20241017202659-8fff45a9bfd6/go.mod h1:Ovu3tpmCecbtf1W6XGlmRzCfcXkaGi0d/X0NiXMf5T8=
+github.com/man-on-box/litepage v0.0.0-20241017212956-f236b4399bf5 h1:uJ17zB9q0oZgPPHG7Q7ijGK5CjoGJtknk4RpHDZeork=
+github.com/man-on-box/litepage v0.0.0-20241017212956-f236b4399bf5/go.mod h1:Ovu3tpmCecbtf1W6XGlmRzCfcXkaGi0d/X0NiXMf5T8=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/testify v1.8.2 h1:+h33VjcLVPDHtOdpUCuF+7gSuG3yGIftsP1YvFihtJ8=
