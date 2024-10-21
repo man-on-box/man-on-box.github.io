@@ -12,31 +12,29 @@ import (
 )
 
 func SetupPages(lp litepage.Litepage, data *data.Data) {
-	tmpl := parseTemplates()
-	mustRender := createMustRender(tmpl)
-
+	render := parseTemplates()
 	articles := data.GetArticles()
 
 	lp.Page("/index.html", func(w io.Writer) {
 		d := data.NewPageIndex(&articles)
-		mustRender(w, "page-index", d)
+		render(w, "page-index", d)
 	})
 
 	lp.Page("/about.html", func(w io.Writer) {
 		d := data.NewPageAbout()
-		mustRender(w, "page-about", d)
+		render(w, "page-about", d)
 	})
 
 	for _, a := range articles {
 		filePath := fmt.Sprintf("/articles/%s.html", a.Slug)
 		lp.Page(filePath, func(w io.Writer) {
 			d := data.NewPageArticle(&a)
-			mustRender(w, "page-article", d)
+			render(w, "page-article", d)
 		})
 	}
 }
 
-func parseTemplates() *template.Template {
+func parseTemplates() (render func(w io.Writer, name string, data interface{})) {
 	patterns := []string{
 		"./view/*.html",
 		"./view/**/*.html",
@@ -55,10 +53,6 @@ func parseTemplates() *template.Template {
 		}
 	}
 
-	return tmpl
-}
-
-func createMustRender(tmpl *template.Template) func(w io.Writer, name string, data interface{}) {
 	return func(w io.Writer, name string, data interface{}) {
 		err := tmpl.ExecuteTemplate(w, name, data)
 		if err != nil {
