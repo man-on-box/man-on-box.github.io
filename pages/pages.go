@@ -2,38 +2,61 @@ package pages
 
 import (
 	"fmt"
+	"html/template"
 	"io"
+	"log"
+	"time"
+
+	"github.com/man-on-box/litepage"
+	"github.com/man-on-box/man-on-box.github.io/data"
 )
 
-func (p *Pages) setupPages() *[]Page {
-	articles := p.data.GetArticles()
+func SetupPages(lp litepage.Litepage, data *data.Data) {
+	render := parseTemplates()
+	articles := data.GetArticles()
 
-	pages := []Page{
-		{
-			filePath: "/index.html",
-			render: func(w io.Writer) {
-				d := p.data.NewPageIndex(&articles)
-				p.executeTemplate(w, "page-index", d)
-			},
-		},
-		{
-			filePath: "/about.html",
-			render: func(w io.Writer) {
-				d := p.data.NewPageAbout()
-				p.executeTemplate(w, "page-about", d)
-			},
-		},
-	}
+	lp.Page("/index.html", func(w io.Writer) {
+		d := data.NewPageIndex(&articles)
+		render(w, "page-index", d)
+	})
+
+	lp.Page("/about.html", func(w io.Writer) {
+		d := data.NewPageAbout()
+		render(w, "page-about", d)
+	})
 
 	for _, a := range articles {
-		pages = append(pages, Page{
-			filePath: fmt.Sprintf("/articles/%s.html", a.Slug),
-			render: func(w io.Writer) {
-				d := p.data.NewPageArticle(&a)
-				p.executeTemplate(w, "page-article", d)
-			},
+		filePath := fmt.Sprintf("/articles/%s.html", a.Slug)
+		lp.Page(filePath, func(w io.Writer) {
+			d := data.NewPageArticle(&a)
+			render(w, "page-article", d)
 		})
 	}
+}
 
-	return &pages
+func parseTemplates() (render func(w io.Writer, name string, data interface{})) {
+	patterns := []string{
+		"./view/*.html",
+		"./view/**/*.html",
+	}
+	tmpl := template.New("").Funcs(template.FuncMap{
+		"version": func() string {
+			return time.Now().Format("01021504")
+		},
+	})
+	var err error
+
+	for _, pattern := range patterns {
+		tmpl, err = tmpl.ParseGlob(pattern)
+		if err != nil {
+			log.Fatalf("Error parsing templates: %v", err)
+		}
+	}
+
+	return func(w io.Writer, name string, data interface{}) {
+		err := tmpl.ExecuteTemplate(w, name, data)
+		if err != nil {
+			log.Fatalf("Error executing template '%s': %v", name, err)
+		}
+	}
 }
