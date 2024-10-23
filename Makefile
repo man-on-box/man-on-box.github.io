@@ -1,7 +1,7 @@
 dev:
 	@echo "Starting dev mode"
-	@npx tailwind -i ./style/main.css -o ./public/main.css --watch & \
-		LP_MODE=serve LP_PORT=3001 air
+	@LP_MODE=serve LP_PORT=3001 air & \
+		npx tailwind -i ./style/main.css -o ./public/main.css --watch
 
 serve:
 	@npx tailwind -i ./style/main.css -o ./public/main.css & \
