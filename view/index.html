@@ -4,7 +4,7 @@
   {{ template "head" .PageData.Head}}
   <body class="antialiased">
     {{ template "nav-menu" .PageData.NavMenu }} {{ template "hero" }}
-    <div class="bg-slate-50 dark:bg-slate-900 transition py-16 px-6 sm:px-16">
+    <div class="bg-slate-50 dark:bg-slate-800 transition py-16 px-6 sm:px-16">
       <section
         class="container mx-auto max-w-prose prose dark:prose-invert prose-xl"
       >
@@ -59,21 +59,23 @@
     </div>
     <div
       id="experience"
-      class="bg-slate-50 dark:bg-slate-900 transition py-16 px-6 sm:px-16"
+      class="bg-slate-50 dark:bg-slate-800 transition py-16 px-6 sm:px-16"
     >
       <section
         class="container mx-auto max-w-prose dark:prose-invert prose prose-xl"
       >
         <h2>Experience</h2>
         {{ range .Experience }}
-        <div data-fade-in class="md:border-l-4 border-pink-500 md:pl-6">
-          <h3 class="mb-0">{{ .Title }}</h3>
-          <p class="m-0">{{ .Company }}</p>
-          <p class="m-0 text-sm">{{ .Date }}</p>
-          <p class="m-0 text-sm">{{ .Location }}</p>
-          {{ range .Description }}
-          <p>{{ . }}</p>
-          {{ end }}
+        <div data-fade-in>
+          <div class="md:border-l-4 border-pink-500 md:pl-6">
+            <h3 class="mb-0">{{ .Title }}</h3>
+            <p class="m-0">{{ .Company }}</p>
+            <p class="m-0 text-sm">{{ .Date }}</p>
+            <p class="m-0 text-sm">{{ .Location }}</p>
+            {{ range .Description }}
+            <p>{{ . }}</p>
+            {{ end }}
+          </div>
         </div>
         <hr />
         {{ end }} {{ template "contact" .PageData.Contact}}
