@@ -38,18 +38,19 @@
           class="flex lg:flex-wrap pb-10 lg:overflow-visible lg:w-full w-screen pr-36 lg:pr-0 overflow-x-auto snap-x gap-4"
         >
           {{ range .Items }}
-          <div
-            class="{{ $boxClasses }} flex-none border-2 shadow-2xl lg:hover:scale-105 transition text-white text-center w-40 rounded-xs px-4 py-6 snap-start scroll-m-6"
-          >
-            <span
-              class="{{ $badgeClasses }} block font-bold mb-8 text-3xl"
-              aria-hidden="true"
+          <div data-fade-in>
+            <div
+              class="{{ $boxClasses }} h-full border-2 shadow-2xl lg:hover:scale-105 transition text-white text-center w-40 rounded-xs px-4 py-6 snap-start scroll-m-6"
             >
-              {{ .Badge }}
-            </span>
-            <span class="text-xl tracking-tight">{{ .Label }}</span>
+              <span
+                class="{{ $badgeClasses }} block font-bold mb-8 text-3xl"
+                aria-hidden="true"
+              >
+                {{ .Badge }}
+              </span>
+              <span class="text-xl tracking-tight">{{ .Label }}</span>
+            </div>
           </div>
-
           {{ end }}
         </div>
 
