@@ -68,13 +68,17 @@
         {{ range .Experience }}
         <div data-fade-in>
           <div class="md:border-l-4 border-pink-500 md:pl-6">
-            <h3 class="mb-0">{{ .Title }}</h3>
-            <p class="m-0">{{ .Company }}</p>
-            <p class="m-0 text-sm">{{ .Date }}</p>
-            <p class="m-0 text-sm">{{ .Location }}</p>
-            {{ range .Description }}
-            <p>{{ . }}</p>
-            {{ end }}
+            <div data-fade-in>
+              <h3 class="mb-0">{{ .Title }}</h3>
+              <p class="m-0">{{ .Company }}</p>
+              <p class="m-0 text-sm">{{ .Date }}</p>
+              <p class="m-0 text-sm">{{ .Location }}</p>
+            </div>
+            <div data-fade-in>
+              {{ range .Description }}
+              <p>{{ . }}</p>
+              {{ end }}
+            </div>
           </div>
         </div>
         <hr />

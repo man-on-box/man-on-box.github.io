@@ -44,7 +44,7 @@
   const elements = document.querySelectorAll("[data-fade-in]");
   if (elements.length === 0) return;
   const staggerDelay = 150;
-  const duration = 800;
+  const duration = 500;
   const intersectionObserver = new IntersectionObserver(
     (entries, observer) => {
       entries.forEach((entry, i) => animateEntry(entry, i, observer));
@@ -56,19 +56,19 @@
   );
   elements.forEach((element) => {
     element.classList.add("transition");
-    element.classList.add("duration-800");
+    element.classList.add("duration-500");
     intersectionObserver.observe(element);
   });
   const animateEntry = (entry, index, observer) => {
     const element = entry.target;
     if (!entry.isIntersecting) {
-      element.classList.add("opacity-10");
+      element.classList.add("opacity-0");
       element.classList.add("translate-y-10");
       return;
     }
     observer.unobserve(element);
     setTimeout(() => {
-      element.classList.remove("opacity-10");
+      element.classList.remove("opacity-0");
       element.classList.remove("translate-y-10");
       removeTransitionAfterAnimated(element);
     }, index * staggerDelay);
@@ -76,7 +76,7 @@
   const removeTransitionAfterAnimated = (element) => {
     setTimeout(() => {
       element.classList.remove("transition");
-      element.classList.remove("duration-800");
+      element.classList.remove("duration-500");
     }, duration);
   };
 })();
