@@ -2,8 +2,8 @@ github.com/BurntSushi/toml v1.2.1 h1:9F2/+DoOYIOksmaJFPw1tGFy1eDnIJXg+UHjuD8lTak
 github.com/BurntSushi/toml v1.2.1/go.mod h1:CxXYINrC8qIiEnFrOxCa7Jy5BFHlXnUU2pbicEuybxQ=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/man-on-box/litepage v0.1.3 h1:FNXFka75rzrHoPi2NCc3CTwwMf0z6ddRBbMMAwu17/Q=
-github.com/man-on-box/litepage v0.1.3/go.mod h1:Ovu3tpmCecbtf1W6XGlmRzCfcXkaGi0d/X0NiXMf5T8=
+github.com/man-on-box/litepage v1.0.0 h1:CWJ2H1vNg5DW6kNdjfP7EfPYcN1JpCcCFplCnv5FJag=
+github.com/man-on-box/litepage v1.0.0/go.mod h1:Ovu3tpmCecbtf1W6XGlmRzCfcXkaGi0d/X0NiXMf5T8=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/testify v1.9.0 h1:HtqpIVDClZ4nwg75+f6Lvsy/wHu+3BoSGCbBAcpTsTg=
