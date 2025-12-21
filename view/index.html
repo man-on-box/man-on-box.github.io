@@ -28,17 +28,29 @@
       </section>
     </div>
     {{ template "divider" }}
-    <div id="skills" class="py-16 px-6 sm:px-16 overflow-hidden">
-      <section
-        class="container mx-auto max-w-5xl overflow-visible prose dark:prose-invert prose-xl"
-      >
-        <h2>Skills</h2>
-        <p>These are not exhaustive lists, but give an idea of my profile.</p>
+    <div id="skills" class="py-16">
+      <section class="prose-xl">
+        <div class="px-6 sm:px-16">
+          <div
+            class="container mx-auto max-w-prose prose dark:prose-invert prose-xl"
+          >
+            <h2>Skills</h2>
+            <p>
+              These are not exhaustive lists, but give an idea of my profile.
+            </p>
+          </div>
+        </div>
         {{ range .Skills}} {{ $boxClasses := .BoxClasses }} {{ $badgeClasses:=
         .BadgeClasses }}
-        <h3>{{ .Title }}</h3>
+        <div class="px-6 sm:px-16">
+          <div
+            class="container pt-16 pb-12 mx-auto max-w-prose prose dark:prose-invert prose-xl"
+          >
+            <h3>{{ .Title }}</h3>
+          </div>
+        </div>
         <div
-          class="flex lg:flex-wrap pb-10 lg:overflow-visible lg:w-full w-screen pr-36 lg:pr-0 overflow-x-auto snap-x gap-4"
+          class="mx-0 pl-6 sm:pl-16 lg:pl-0 w-screen lg:mx-auto lg:max-w-prose flex lg:flex-wrap pb-10 lg:overflow-visible pr-36 lg:pr-0 overflow-x-auto gap-4"
         >
           {{ range .Items }}
           <div data-fade-in>
