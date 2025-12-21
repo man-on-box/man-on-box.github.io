@@ -1,9 +1,5 @@
 package data
 
-import (
-	"time"
-)
-
 const (
 	LINKEDIN_URL    = "https://www.linkedin.com/in/oliver-hughes-m880/"
 	GITHUB_URL      = "https://github.com/man-on-box"
@@ -59,10 +55,9 @@ type head struct {
 }
 
 type footer struct {
-	Links       []link
-	Socials     []social
-	RepoUrl     string
-	CurrentYear int
+	Links   []link
+	Socials []social
+	RepoUrl string
 }
 
 func newPageData() PageData {
@@ -89,9 +84,8 @@ func newContact() contact {
 
 func newFooter() footer {
 	return footer{
-		Links:       navLinks,
-		Socials:     socials,
-		RepoUrl:     GITHUB_REPO_URL,
-		CurrentYear: time.Now().Year(),
+		Links:   navLinks,
+		Socials: socials,
+		RepoUrl: GITHUB_REPO_URL,
 	}
 }

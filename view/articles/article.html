@@ -2,11 +2,11 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   {{ template "head" .PageData.Head}}
-  <body class="antialiased">
+  <body
+    class="antialiased bg-[url(/img/noise.png)] dark:bg-none bg-indigo-50 dark:bg-indigo-900 transition text-slate-800 dark:text-slate-200"
+  >
     {{ template "nav-menu" .PageData.NavMenu }}
-    <div
-      class="bg-slate-50 dark:bg-slate-800 transition pt-6 md:pt-8 pb-16 px-6 sm:px-16"
-    >
+    <div class="pt-6 md:pt-8 pb-16 px-6 sm:px-16">
       <section
         class="container mx-auto max-w-prose prose dark:prose-invert prose-xl"
       >

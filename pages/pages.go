@@ -5,6 +5,7 @@ import (
 	"html/template"
 	"io"
 	"log"
+	"strconv"
 	"time"
 
 	"github.com/man-on-box/litepage"
@@ -34,7 +35,7 @@ func SetupPages(lp litepage.Litepage, data *data.Data) {
 	}
 }
 
-func parseTemplates() (render func(w io.Writer, name string, data interface{})) {
+func parseTemplates() (render func(w io.Writer, name string, data any)) {
 	patterns := []string{
 		"./view/*.html",
 		"./view/**/*.html",
@@ -42,6 +43,9 @@ func parseTemplates() (render func(w io.Writer, name string, data interface{})) 
 	tmpl := template.New("").Funcs(template.FuncMap{
 		"version": func() string {
 			return time.Now().Format("01021504")
+		},
+		"currentYear": func() string {
+			return strconv.Itoa(time.Now().Year())
 		},
 	})
 	var err error
@@ -53,7 +57,7 @@ func parseTemplates() (render func(w io.Writer, name string, data interface{})) 
 		}
 	}
 
-	return func(w io.Writer, name string, data interface{}) {
+	return func(w io.Writer, name string, data any) {
 		err := tmpl.ExecuteTemplate(w, name, data)
 		if err != nil {
 			log.Fatalf("Error executing template '%s': %v", name, err)

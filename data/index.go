@@ -46,19 +46,19 @@ type homeMeta struct {
 	Desc  string `yaml:"description"`
 }
 
-var boxClassMap = map[string]string{
-	"pink":  "bg-pink-300 shadow-pink-800/60",
-	"amber": "bg-amber-400 shadow-amber-800/60",
-	"cyan":  "bg-cyan-400 shadow-cyan-800/60",
-}
-
-var badgeClassMap = map[string]string{
-	"pink":  "text-pink-600",
-	"amber": "text-amber-600",
-	"cyan":  "text-cyan-600",
-}
-
 func (d *Data) NewPageIndex(articles *[]article) pageIndex {
+	boxClasses := []string{
+		"bg-pink-300 shadow-pink-800/60",
+		"bg-amber-400 shadow-amber-800/60",
+		"bg-cyan-400 shadow-cyan-800/60",
+	}
+
+	badgeClasses := []string{
+		"text-pink-600",
+		"text-amber-600",
+		"text-cyan-600",
+	}
+
 	pageData := newPageData()
 	meta := homeMeta{}
 	p := util.MdFileToHTML("content/home/content.md", &meta)
@@ -72,11 +72,11 @@ func (d *Data) NewPageIndex(articles *[]article) pageIndex {
 	skillViews := []skillView{}
 	util.ParseJSONFile("content/home/skills.json", &skills)
 
-	for _, skill := range skills {
+	for i, skill := range skills {
 		skillViews = append(skillViews, skillView{
 			Title:        skill.Title,
-			BoxClasses:   boxClassMap[skill.Color],
-			BadgeClasses: badgeClassMap[skill.Color],
+			BoxClasses:   boxClasses[i%len(boxClasses)],
+			BadgeClasses: badgeClasses[i%len(badgeClasses)],
 			Items:        skill.Items,
 		})
 	}

@@ -3,7 +3,7 @@
 <html lang="en" class="scroll-smooth">
   {{ template "head" .PageData.Head}}
   <body
-    class="antialiased bg-slate-50 dark:bg-slate-800 transition text-slate-800 dark:text-slate-200"
+    class="antialiased bg-[url(/img/noise.png)] dark:bg-none bg-indigo-50 dark:bg-indigo-900 transition text-slate-800 dark:text-slate-200"
   >
     {{ template "nav-menu" .PageData.NavMenu }} {{ template "hero" }}
     <div class="py-16 px-6 sm:px-16">
@@ -61,10 +61,7 @@
       </section>
     </div>
     {{ template "divider" }}
-    <div
-      id="experience"
-      class="bg-slate-50 dark:bg-slate-800 transition py-16 px-6 sm:px-16"
-    >
+    <div id="experience" class="py-16 px-6 sm:px-16">
       <section
         class="container mx-auto max-w-prose dark:prose-invert prose prose-xl"
       >
@@ -89,7 +86,7 @@
         {{ end }} {{ template "contact" .PageData.Contact}}
       </section>
     </div>
-    {{ template "divider" }} {{ template "footer" .PageData.Footer }}
+    {{ template "footer" .PageData.Footer }}
   </body>
 </html>
 {{ end }}
