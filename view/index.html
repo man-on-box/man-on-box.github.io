@@ -2,89 +2,105 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   {{ template "head" .PageData.Head}}
-  <body class="antialiased">
-    {{ template "nav-menu" .PageData.NavMenu }} {{ template "hero" }}
-    <div class="bg-slate-50 dark:bg-slate-800 transition py-16 px-6 sm:px-16">
-      <section
-        class="container mx-auto max-w-prose prose dark:prose-invert prose-xl"
-      >
-        {{ .Content }}
-        <hr />
-        <p id="articles" class="font-bold">Latest articles</p>
-        {{ range .Articles }}
+  <body
+    class="antialiased dark:bg-none bg-violet-50 dark:bg-violet-950 transition text-slate-800 dark:text-slate-200"
+  >
+    {{ template "nav-menu" .PageData.NavMenu }}
+    <main>
+      {{ template "hero" }}
+      <div class="py-16 px-6 sm:px-16">
+        <section
+          class="container mx-auto max-w-prose prose dark:prose-invert prose-xl"
+        >
+          {{ .Content }}
+          <hr />
+          <p id="articles" class="font-bold">Latest articles</p>
+          {{ range .Articles }}
 
-        <a
-          class="block border-2 rounded-sm p-5 no-underline hover:underline transition hover:scale-105 hover:border-pink-500"
-          href="/articles/{{ .Slug }}.html"
-        >
-          <span class="font-bold block text-2xl mb-2">{{ .Title }}</span>
-          <small class="block text-sm">
-            📆 {{ .Published }} ⌛ {{ .ReadTime}}
-          </small>
-        </a>
-        {{ end }}
-      </section>
-    </div>
-    <div id="skills" class="bg-slate-950 py-16 px-6 sm:px-16 overflow-hidden">
-      <section
-        class="container mx-auto max-w-5xl overflow-visible prose prose-invert prose-xl"
-      >
-        <h2>Skills</h2>
-        <p>These are not exhaustive lists, but give an idea of my profile.</p>
-        {{ range .Skills}} {{ $boxClasses := .BoxClasses }} {{ $badgeClasses:=
-        .BadgeClasses }}
-        <h3>{{ .Title }}</h3>
-        <div
-          class="flex lg:flex-wrap pb-10 lg:overflow-visible lg:w-full w-screen pr-36 lg:pr-0 overflow-x-auto snap-x gap-4"
-        >
-          {{ range .Items }}
-          <div data-fade-in>
-            <div
-              class="{{ $boxClasses }} h-full border-2 shadow-2xl lg:hover:scale-105 transition text-white text-center w-40 rounded-xs px-4 py-6 snap-start scroll-m-6"
-            >
-              <span
-                class="{{ $badgeClasses }} block font-bold mb-8 text-3xl"
-                aria-hidden="true"
-              >
-                {{ .Badge }}
-              </span>
-              <span class="text-xl tracking-tight">{{ .Label }}</span>
-            </div>
-          </div>
+          <a
+            class="block border-2 rounded-sm p-5 no-underline hover:underline transition hover:scale-105 hover:border-pink-500"
+            href="/articles/{{ .Slug }}.html"
+          >
+            <span class="font-bold block text-2xl mb-2">{{ .Title }}</span>
+            <small class="block text-sm">
+              📆 {{ .Published }} ⌛ {{ .ReadTime}}
+            </small>
+          </a>
           {{ end }}
-        </div>
-
-        {{ end }}
-      </section>
-    </div>
-    <div
-      id="experience"
-      class="bg-slate-50 dark:bg-slate-800 transition py-16 px-6 sm:px-16"
-    >
-      <section
-        class="container mx-auto max-w-prose dark:prose-invert prose prose-xl"
-      >
-        <h2>Experience</h2>
-        {{ range .Experience }}
-        <div data-fade-in>
-          <div class="md:border-l-4 border-pink-500 md:pl-6">
-            <div data-fade-in>
-              <h3 class="mb-0">{{ .Title }}</h3>
-              <p class="m-0">{{ .Company }}</p>
-              <p class="m-0 text-sm">{{ .Date }}</p>
-              <p class="m-0 text-sm">{{ .Location }}</p>
-            </div>
-            <div data-fade-in>
-              {{ range .Description }}
-              <p>{{ . }}</p>
-              {{ end }}
+        </section>
+      </div>
+      {{ template "divider" }}
+      <div id="skills" class="py-16">
+        <section class="prose-xl">
+          <div class="px-6 sm:px-16">
+            <div
+              class="container mx-auto max-w-prose prose dark:prose-invert prose-xl"
+            >
+              <h2>Skills</h2>
+              <p>
+                These are not exhaustive lists, but give an idea of my profile.
+              </p>
             </div>
           </div>
-        </div>
-        <hr />
-        {{ end }} {{ template "contact" .PageData.Contact}}
-      </section>
-    </div>
+          {{ range .Skills}} {{ $boxClasses := .BoxClasses }} {{ $badgeClasses:=
+          .BadgeClasses }}
+          <div class="px-6 sm:px-16">
+            <div
+              class="container pt-16 pb-12 mx-auto max-w-prose prose dark:prose-invert prose-xl"
+            >
+              <h3>{{ .Title }}</h3>
+            </div>
+          </div>
+          <div
+            class="mx-0 pl-6 sm:pl-16 lg:pl-0 w-screen lg:mx-auto lg:max-w-prose flex lg:flex-wrap pb-10 lg:overflow-visible pr-36 lg:pr-0 overflow-x-auto gap-4"
+          >
+            {{ range .Items }}
+            <div data-fade-in>
+              <div
+                class="{{ $boxClasses }} bg-[url(/img/noise.png)] h-full text-slate-800 shadow hover:shadow-lg lg:hover:scale-105 transition text-center w-40 rounded-xl px-4 py-6 snap-start scroll-m-6"
+              >
+                <span
+                  class="{{ $badgeClasses }} block font-bold mb-8 text-3xl"
+                  aria-hidden="true"
+                >
+                  {{ .Badge }}
+                </span>
+                <span class="text-xl tracking-tight">{{ .Label }}</span>
+              </div>
+            </div>
+            {{ end }}
+          </div>
+
+          {{ end }}
+        </section>
+      </div>
+      {{ template "divider" }}
+      <div id="experience" class="py-16 px-6 sm:px-16">
+        <section
+          class="container mx-auto max-w-prose dark:prose-invert prose prose-xl"
+        >
+          <h2>Experience</h2>
+          {{ range .Experience }}
+          <div data-fade-in>
+            <div class="md:border-l-4 border-pink-500 md:pl-6">
+              <div data-fade-in>
+                <h3 class="mb-0">{{ .Title }}</h3>
+                <p class="m-0">{{ .Company }}</p>
+                <p class="m-0 text-sm">{{ .Date }}</p>
+                <p class="m-0 text-sm">{{ .Location }}</p>
+              </div>
+              <div data-fade-in>
+                {{ range .Description }}
+                <p>{{ . }}</p>
+                {{ end }}
+              </div>
+            </div>
+          </div>
+          <hr />
+          {{ end }} {{ template "contact" .PageData.Contact}}
+        </section>
+      </div>
+    </main>
     {{ template "footer" .PageData.Footer }}
   </body>
 </html>
