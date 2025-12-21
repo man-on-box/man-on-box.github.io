@@ -2,9 +2,11 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   {{ template "head" .PageData.Head}}
-  <body class="antialiased">
+  <body
+    class="antialiased bg-slate-50 dark:bg-slate-800 transition text-slate-800 dark:text-slate-200"
+  >
     {{ template "nav-menu" .PageData.NavMenu }} {{ template "hero" }}
-    <div class="bg-slate-50 dark:bg-slate-800 transition py-16 px-6 sm:px-16">
+    <div class="py-16 px-6 sm:px-16">
       <section
         class="container mx-auto max-w-prose prose dark:prose-invert prose-xl"
       >
@@ -25,9 +27,10 @@
         {{ end }}
       </section>
     </div>
-    <div id="skills" class="bg-slate-950 py-16 px-6 sm:px-16 overflow-hidden">
+    {{ template "divider" }}
+    <div id="skills" class="py-16 px-6 sm:px-16 overflow-hidden">
       <section
-        class="container mx-auto max-w-5xl overflow-visible prose prose-invert prose-xl"
+        class="container mx-auto max-w-5xl overflow-visible prose dark:prose-invert prose-xl"
       >
         <h2>Skills</h2>
         <p>These are not exhaustive lists, but give an idea of my profile.</p>
@@ -40,7 +43,7 @@
           {{ range .Items }}
           <div data-fade-in>
             <div
-              class="{{ $boxClasses }} h-full border-2 shadow-2xl lg:hover:scale-105 transition text-white text-center w-40 rounded-xs px-4 py-6 snap-start scroll-m-6"
+              class="{{ $boxClasses }} bg-[url(/img/noise.png)] h-full text-slate-800 shadow hover:shadow-lg lg:hover:scale-105 transition text-center w-40 rounded-xl px-4 py-6 snap-start scroll-m-6"
             >
               <span
                 class="{{ $badgeClasses }} block font-bold mb-8 text-3xl"
@@ -57,6 +60,7 @@
         {{ end }}
       </section>
     </div>
+    {{ template "divider" }}
     <div
       id="experience"
       class="bg-slate-50 dark:bg-slate-800 transition py-16 px-6 sm:px-16"
@@ -85,7 +89,7 @@
         {{ end }} {{ template "contact" .PageData.Contact}}
       </section>
     </div>
-    {{ template "footer" .PageData.Footer }}
+    {{ template "divider" }} {{ template "footer" .PageData.Footer }}
   </body>
 </html>
 {{ end }}

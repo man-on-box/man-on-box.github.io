@@ -1,7 +1,5 @@
 {{ define "footer" }}
-<footer
-  class="bg-slate-800 border-t-4 border-pink-500 text-slate-300 text-sm p-16"
->
+<footer class="text-sm p-16">
   <section class="container mx-auto max-w-5xl">
     <div class="flex justify-between">
       <div class="flex-col text-center inline-flex">
@@ -31,9 +29,7 @@
         <div class="flex flex-col gap-2">
           {{ range .Links }}
 
-          <a
-            class="hover:underline hover:text-white font-bold"
-            href="{{ .Url }}"
+          <a class="hover:underline font-bold" href="{{ .Url }}"
             >{{ .Label }}</a
           >
           {{ end }}
@@ -44,10 +40,7 @@
     <div
       class="text-center flex flex-col gap-2 md:flex-row-reverse md:justify-between"
     >
-      <a
-        href="{{ .RepoUrl }}"
-        target="_blank"
-        class="hover:underline hover:text-white"
+      <a href="{{ .RepoUrl }}" target="_blank" class="hover:underline"
         >Site built with Go & Tailwind</a
       >
       <p>© {{ .CurrentYear }} · Man on Box Portfolio</p>

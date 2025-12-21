@@ -47,9 +47,9 @@ type homeMeta struct {
 }
 
 var boxClassMap = map[string]string{
-	"pink":  "border-pink-800 hover:border-pink-500 shadow-pink-800/60 hover:shadow-pink-800",
-	"amber": "border-amber-800 hover:border-amber-500 shadow-amber-800/60 hover:shadow-amber-800",
-	"cyan":  "border-cyan-800 hover:border-cyan-500 shadow-cyan-800/60 hover:shadow-cyan-800",
+	"pink":  "bg-pink-300 shadow-pink-800/60",
+	"amber": "bg-amber-400 shadow-amber-800/60",
+	"cyan":  "bg-cyan-400 shadow-cyan-800/60",
 }
 
 var badgeClassMap = map[string]string{
