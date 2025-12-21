@@ -57,7 +57,6 @@ type head struct {
 type footer struct {
 	Links   []link
 	Socials []social
-	RepoUrl string
 }
 
 func newPageData() PageData {
@@ -86,6 +85,5 @@ func newFooter() footer {
 	return footer{
 		Links:   navLinks,
 		Socials: socials,
-		RepoUrl: GITHUB_REPO_URL,
 	}
 }
