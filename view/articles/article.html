@@ -3,62 +3,64 @@
 <html lang="en" class="scroll-smooth">
   {{ template "head" .PageData.Head}}
   <body
-    class="antialiased bg-[url(/img/noise.png)] dark:bg-none bg-violet-50 dark:bg-violet-950 transition text-slate-800 dark:text-slate-200"
+    class="antialiased bg-violet-50 dark:bg-violet-950 transition text-slate-800 dark:text-slate-200"
   >
     {{ template "nav-menu" .PageData.NavMenu }}
-    <div class="pt-6 md:pt-8 pb-16 px-6 sm:px-16">
-      <section
-        class="container mx-auto max-w-prose prose dark:prose-invert prose-xl"
-      >
-        <a
-          class="inline-flex mb-16 mt-0 items-center gap-3 font-bold no-underline transition decoration-pink-500 hover:underline hover:scale-105"
-          href="/"
+    <main>
+      <div class="pt-6 md:pt-8 pb-16 px-6 sm:px-16">
+        <section
+          class="container mx-auto max-w-prose prose dark:prose-invert prose-xl"
         >
-          <img
-            src="/img/man-on-box-circle.svg"
-            height="40"
-            width="40"
-            alt="Man on box"
-            class="m-0"
-            aria-hidden="true"
-          />
-          <span>More from Oli 👋</span>
-        </a>
-        <article>
-          <h1 class="mb-2 tracking-tight">{{ .Article.Title }}</h1>
-          <span class="text-sm">
-            📆 {{ .Article.Published }} ⌛ {{ .Article.ReadTime}}
-          </span>
+          <a
+            class="inline-flex mb-16 mt-0 items-center gap-3 font-bold no-underline transition decoration-pink-500 hover:underline hover:scale-105"
+            href="/"
+          >
+            <img
+              src="/img/man-on-box-circle.svg"
+              height="40"
+              width="40"
+              alt="Man on box"
+              class="m-0"
+              aria-hidden="true"
+            />
+            <span>More from Oli 👋</span>
+          </a>
+          <article>
+            <h1 class="mb-2 tracking-tight">{{ .Article.Title }}</h1>
+            <span class="text-sm">
+              📆 {{ .Article.Published }} ⌛ {{ .Article.ReadTime}}
+            </span>
+            {{ if .Article.SyndicateUrl }}
+            <p class="text-sm">
+              Published at
+              <a target="_blank" href="{{ .Article.SyndicateUrl}}">
+                {{ .Article.SyndicateUrl }}
+              </a>
+            </p>
+            {{ end }}
+            <p><i>{{ .Article.Desc }}</i></p>
+            <img
+              src="{{ .Article.Img }}"
+              aria-hidden="true"
+              alt="Article cover"
+            />
+            {{ .Article.Content }}
+          </article>
           {{ if .Article.SyndicateUrl }}
-          <p class="text-sm">
-            Published at
-            <a target="_blank" href="{{ .Article.SyndicateUrl}}">
-              {{ .Article.SyndicateUrl }}
-            </a>
+          <p class="mt-16">
+            <i>
+              To follow, discuss and comment, visit
+              <a target="_blank" href="{{ .Article.SyndicateUrl}}">
+                {{ .Article.SyndicateUrl }}
+              </a>
+            </i>
           </p>
           {{ end }}
-          <p><i>{{ .Article.Desc }}</i></p>
-          <img
-            src="{{ .Article.Img }}"
-            aria-hidden="true"
-            alt="Article cover"
-          />
-          {{ .Article.Content }}
-        </article>
-        {{ if .Article.SyndicateUrl }}
-        <p class="mt-16">
-          <i>
-            To follow, discuss and comment, visit
-            <a target="_blank" href="{{ .Article.SyndicateUrl}}">
-              {{ .Article.SyndicateUrl }}
-            </a>
-          </i>
-        </p>
-        {{ end }}
-        <hr />
-        {{ template "contact" .PageData.Contact}}
-      </section>
-    </div>
+          <hr />
+          {{ template "contact" .PageData.Contact}}
+        </section>
+      </div>
+    </main>
     {{ template "footer" .PageData.Footer }}
   </body>
 </html>
