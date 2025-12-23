@@ -6,11 +6,13 @@
     <section class="container mx-auto max-w-5xl">
       <div class="flex justify-between">
         <div class="flex-col text-center inline-flex">
-          <img
-            src="/img/man-on-box-circle.svg"
-            alt="github profile"
-            class="w-20 h-20 mb-2"
-          />
+          <a href="/" aria-label="Home">
+            <img
+              src="/img/man-on-box-circle.svg"
+              alt="github profile"
+              class="w-20 h-20 mb-2"
+            />
+          </a>
           <span class="font-bold">Man on Box</span>
         </div>
         <div class="sm:flex sm:ml-10 sm:grow justify-between">
@@ -21,11 +23,7 @@
               aria-label="{{ .Link.Label }}"
               target="_blank"
             >
-              <img
-                src="{{ .Img }}"
-                alt="{{ .Alt }}"
-                class="w-10 h-10 opacity-85 hover:opacity-100"
-              />
+              <img src="{{ .Img }}" alt="{{ .Alt }}" class="w-10 h-10" />
             </a>
             {{ end }}
           </div>
