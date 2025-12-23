@@ -3,9 +3,12 @@
 <html lang="en" class="scroll-smooth">
   {{ template "head" .PageData.Head}}
   <body
-    class="antialiased dark:bg-none bg-violet-50 dark:bg-violet-950 transition text-slate-800 dark:text-slate-200"
+    class="antialiased dark:bg-none bg-violet-50 dark:bg-violet-900 transition text-slate-800 dark:text-slate-200"
   >
+    <!-- nav -->
     {{ template "nav-menu" .PageData.NavMenu }}
+    <!-- gradient -->
+    {{ template "page-top-gradient" }}
     <main>
       {{ template "hero" }}
       <div class="py-16 px-6 sm:px-16">
@@ -42,36 +45,39 @@
               </p>
             </div>
           </div>
-          {{ range .Skills}} {{ $boxClasses := .BoxClasses }} {{ $badgeClasses:=
-          .BadgeClasses }}
-          <div class="px-6 sm:px-16">
-            <div
-              class="container pt-16 pb-12 mx-auto max-w-prose prose dark:prose-invert prose-xl"
-            >
-              <h3>{{ .Title }}</h3>
-            </div>
-          </div>
-          <div
-            class="mx-0 pl-6 sm:pl-16 lg:pl-0 w-screen lg:mx-auto lg:max-w-prose flex lg:flex-wrap pb-10 lg:overflow-visible pr-36 lg:pr-0 overflow-x-auto gap-4"
-          >
-            {{ range .Items }}
-            <div data-fade-in>
-              <div
-                class="{{ $boxClasses }} bg-[url(/img/noise.png)] h-full text-slate-800 shadow hover:shadow-lg lg:hover:scale-105 transition text-center w-40 rounded-xl px-4 py-6 snap-start scroll-m-6"
-              >
-                <span
-                  class="{{ $badgeClasses }} block font-bold mb-8 text-3xl"
-                  aria-hidden="true"
+          <div class="flex flex-col gap-12 mt-8">
+            {{ range .Skills}} {{ $boxClasses := .BoxClasses }} {{
+            $badgeClasses:= .BadgeClasses }}
+            <div class="flex flex-col gap-8">
+              <div class="px-6 sm:px-16">
+                <div
+                  class="container mx-auto max-w-prose prose dark:prose-invert prose-xl"
                 >
-                  {{ .Badge }}
-                </span>
-                <span class="text-xl tracking-tight">{{ .Label }}</span>
+                  <h3>{{ .Title }}</h3>
+                </div>
+              </div>
+              <div
+                class="mx-0 pl-6 sm:pl-16 lg:pl-0 pr-36 lg:pr-0 w-screen lg:mx-auto lg:max-w-prose flex lg:flex-wrap lg:overflow-visible overflow-x-auto gap-4"
+              >
+                {{ range .Items }}
+                <div data-fade-in>
+                  <div
+                    class="{{ $boxClasses }} bg-[url(/img/noise.png)] h-full text-slate-800 shadow hover:shadow-lg lg:hover:scale-105 transition text-center w-40 rounded-xl px-4 py-6 snap-start scroll-m-6"
+                  >
+                    <span
+                      class="{{ $badgeClasses }} block font-bold mb-8 text-3xl"
+                      aria-hidden="true"
+                    >
+                      {{ .Badge }}
+                    </span>
+                    <span class="text-xl tracking-tight">{{ .Label }}</span>
+                  </div>
+                </div>
+                {{ end }}
               </div>
             </div>
             {{ end }}
           </div>
-
-          {{ end }}
         </section>
       </div>
       {{ template "divider" }}
