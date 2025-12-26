@@ -2,16 +2,10 @@
 <nav
   id="nav-menu"
   aria-hidden="true"
-  class="hidden bg-violet-950/90 text-violet-50 backdrop-blur-sm z-10 border-b fixed w-svw p-20 text-2xl"
+  class="hidden bg-violet-900/90 text-violet-50 backdrop-blur-sm z-10 fixed top-5 right-5 lg:right-20 2xl:right-36 rounded-sm text-2xl"
 >
-  <div class="mx-auto flex gap-20">
-    <img
-      src="/img/man-on-box-circle.svg"
-      alt="Man on box"
-      class="hidden md:block"
-      aria-hidden="true"
-    />
-    <div class="flex flex-col gap-8 border-l-2 border-l-violet-300 pl-5">
+  <div class="bg-[url(/img/noise.png)] p-16 md:py-18 md:px-20">
+    <div class="flex flex-col gap-8">
       {{ range .Links }}
 
       <a
