@@ -2,15 +2,23 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   {{ template "head" .PageData.Head}}
-  <body class="antialiased">
-    {{ template "nav-menu" .PageData.NavMenu }} {{ template "hero" }}
-    <div class="bg-slate-50 dark:bg-slate-900 transition py-16 px-6 sm:px-16">
-      <section
-        class="container mx-auto max-w-prose prose dark:prose-invert prose-xl"
-      >
-        {{ .Content }} {{ template "contact" .PageData.Contact}}
-      </section>
-    </div>
+  <body
+    class="antialiased dark:bg-none bg-violet-50 dark:bg-violet-900 transition text-slate-800 dark:text-slate-200"
+  >
+    <!-- nav -->
+    {{ template "nav-menu" .PageData.NavMenu }}
+    <!-- gradient -->
+    {{ template "page-top-gradient" }}
+    <main>
+      {{ template "hero" }}
+      <div class="py-16 px-6 sm:px-16">
+        <section
+          class="container mx-auto max-w-prose prose dark:prose-invert prose-xl"
+        >
+          {{ .Content }} {{ template "contact" .PageData.Contact}}
+        </section>
+      </div>
+    </main>
     {{ template "footer" .PageData.Footer }}
   </body>
 </html>
