@@ -39,7 +39,7 @@
       title="Toggle navigation menu"
       aria-label="Toggle navigation menu"
       aria-expanded="false"
-      class="bg-violet-900 hover:bg-pink-600 hover:scale-105 transition cursor-pointer h-10 md:h-14 w-10 md:w-14 rounded-sm flex justify-center items-center"
+      class="bg-violet-700 dark:bg-violet-900 hover:bg-pink-600 hover:scale-105 transition cursor-pointer h-10 md:h-14 w-10 md:w-14 rounded-sm flex justify-center items-center"
     >
       <div class="flex flex-col gap-1 w-6">
         <span class="block h-1 bg-violet-50 rounded-sm"></span>
@@ -51,14 +51,14 @@
   <nav
     id="nav-menu"
     aria-hidden="true"
-    class="hidden shadow-lg bg-gradient-to-b from-violet-800/50 via-violet-800/60 to-violet-800/80 text-violet-50 overflow-hidden backdrop-blur-sm z-10 top-22 right-5 lg:right-20 2xl:right-36 rounded-xl text-2xl"
+    class="hidden shadow-lg bg-gradient-to-b from-violet-600/60 via-violet-800/60 to-violet-800/80 overflow-hidden backdrop-blur-sm z-10 top-22 right-5 lg:right-20 2xl:right-36 rounded-xl"
   >
-    <div class="bg-[url(/img/noise.png)] py-10 px-14">
-      <div class="flex flex-col gap-8">
+    <div class="bg-[url(/img/noise.png)] py-8 px-14">
+      <div class="flex flex-col gap-6">
         {{ range .Links }}
 
         <a
-          class="hover:underline decoration-pink-500 font-bold"
+          class="hover:underline decoration-pink-500 text-violet-50 text-xl"
           tabindex="-1"
           href="{{ .Url }}"
         >
