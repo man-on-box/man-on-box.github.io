@@ -1,85 +1,89 @@
 {{ define "nav-menu" }}
-<nav
-  id="nav-menu"
-  aria-hidden="true"
-  class="hidden bg-violet-900/90 text-violet-50 backdrop-blur-sm z-10 fixed top-5 right-5 lg:right-20 2xl:right-36 rounded-sm text-2xl"
+
+<div
+  class="fixed flex gap-2 flex-col z-10 top-5 right-5 lg:right-20 2xl:right-36"
 >
-  <div class="bg-[url(/img/noise.png)] p-16 md:py-18 md:px-20">
-    <div class="flex flex-col gap-8">
-      {{ range .Links }}
-
-      <a
-        class="hover:underline decoration-pink-500 font-bold"
-        tabindex="-1"
-        href="{{ .Url }}"
+  <div class="flex gap-4 justify-end">
+    <button
+      id="dark-toggle"
+      class="cursor-pointer p-2 group hover:scale-105"
+      title="Toggle light/dark mode"
+      aria-label="Toggle light/dark mode"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        aria-hidden="true"
+        data-slot="icon"
+        class="size-6 md:size-7 transition stroke-gray-400 group-hover:stroke-pink-500"
       >
-        {{ .Label }}
-      </a>
-      {{ end }}
-      <div class="flex gap-3">
-        {{ range .Socials}}
-        <a
-          href="{{ .Link.Url }}"
-          aria-label="{{ .Link.Label }}"
-          target="_blank"
-          tabindex="-1"
-        >
-          <img
-            src="{{ .Img }}"
-            alt="{{ .Alt }}"
-            class="w-8 h-8 opacity-85 hover:opacity-100"
-          />
-        </a>
+        <path
+          class="dark:hidden"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+        ></path>
+        <path
+          class="dark:inline hidden"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+        ></path>
+      </svg>
+    </button>
+    <button
+      id="nav-btn"
+      type="button"
+      title="Toggle navigation menu"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      class="bg-violet-900 hover:bg-pink-600 hover:scale-105 transition cursor-pointer h-10 md:h-14 w-10 md:w-14 rounded-sm flex justify-center items-center"
+    >
+      <div class="flex flex-col gap-1 w-6">
+        <span class="block h-1 bg-violet-50 rounded-sm"></span>
+        <span class="block h-1 bg-violet-50 rounded-sm"></span>
+        <span class="block h-1 bg-violet-50 rounded-sm"></span>
+      </div>
+    </button>
+  </div>
+  <nav
+    id="nav-menu"
+    aria-hidden="true"
+    class="hidden shadow bg-gradient-to-b from-violet-800/50 via-violet-800/60 to-violet-800/80 text-violet-50 overflow-hidden backdrop-blur-sm z-10 top-22 right-5 lg:right-20 2xl:right-36 rounded-xl text-2xl"
+  >
+    <div class="bg-[url(/img/noise.png)] py-10 px-14">
+      <div class="flex flex-col gap-8">
+        {{ range .Links }}
 
+        <a
+          class="hover:underline decoration-pink-500 font-bold"
+          tabindex="-1"
+          href="{{ .Url }}"
+        >
+          {{ .Label }}
+        </a>
         {{ end }}
+        <div class="flex gap-3">
+          {{ range .Socials}}
+          <a
+            href="{{ .Link.Url }}"
+            aria-label="{{ .Link.Label }}"
+            target="_blank"
+            tabindex="-1"
+          >
+            <img
+              src="{{ .Img }}"
+              alt="{{ .Alt }}"
+              class="w-8 h-8 opacity-85 hover:opacity-100"
+            />
+          </a>
+
+          {{ end }}
+        </div>
       </div>
     </div>
-  </div>
-</nav>
-
-<div class="flex gap-4 fixed z-10 top-5 right-5 lg:right-20 2xl:right-36">
-  <button
-    id="dark-toggle"
-    class="cursor-pointer p-2 group hover:scale-105"
-    title="Toggle light/dark mode"
-    aria-label="Toggle light/dark mode"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="1.5"
-      aria-hidden="true"
-      data-slot="icon"
-      class="size-6 md:size-7 transition stroke-gray-400 group-hover:stroke-pink-500"
-    >
-      <path
-        class="dark:hidden"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
-      ></path>
-      <path
-        class="dark:inline hidden"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
-      ></path>
-    </svg>
-  </button>
-  <button
-    id="nav-btn"
-    type="button"
-    title="Toggle navigation menu"
-    aria-label="Toggle navigation menu"
-    aria-expanded="false"
-    class="bg-violet-900 hover:bg-pink-600 hover:scale-105 transition cursor-pointer h-10 md:h-14 w-10 md:w-14 rounded-sm flex justify-center items-center"
-  >
-    <div class="flex flex-col gap-1 w-6">
-      <span class="block h-1 bg-violet-50 rounded-sm"></span>
-      <span class="block h-1 bg-violet-50 rounded-sm"></span>
-      <span class="block h-1 bg-violet-50 rounded-sm"></span>
-    </div>
-  </button>
+  </nav>
 </div>
 {{ end }}
