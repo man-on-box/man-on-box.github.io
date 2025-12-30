@@ -13,7 +13,7 @@ import (
 )
 
 func SetupPages(lp litepage.Litepage, data *data.Data) {
-	render := parseTemplates()
+	render := parseTemplates(data.SiteDomain)
 	articles := data.GetArticles()
 
 	lp.Page("/index.html", func(w io.Writer) {
@@ -35,7 +35,7 @@ func SetupPages(lp litepage.Litepage, data *data.Data) {
 	}
 }
 
-func parseTemplates() (render func(w io.Writer, name string, data any)) {
+func parseTemplates(siteDomain string) (render func(w io.Writer, name string, data any)) {
 	patterns := []string{
 		"./view/*.html",
 		"./view/**/*.html",
@@ -46,6 +46,9 @@ func parseTemplates() (render func(w io.Writer, name string, data any)) {
 		},
 		"currentYear": func() string {
 			return strconv.Itoa(time.Now().Year())
+		},
+		"siteDomain": func() string {
+			return siteDomain
 		},
 	})
 	var err error
