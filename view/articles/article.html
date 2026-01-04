@@ -49,18 +49,15 @@
             />
             {{ .Article.Content }}
           </article>
-          {{ if .Article.SyndicateUrl }}
-          <p class="mt-16">
-            <i>
-              To follow, discuss and comment, visit
-              <a target="_blank" href="{{ .Article.SyndicateUrl}}">
-                {{ .Article.SyndicateUrl }}
-              </a>
-            </i>
-          </p>
-          {{ end }}
-          <hr />
-          {{ template "contact" .PageData.Contact}}
+          <script
+            src="https://utteranc.es/client.js"
+            repo="man-on-box/man-on-box.github.io"
+            issue-term="pathname"
+            label="comment"
+            theme="github-light"
+            crossorigin="anonymous"
+            async
+          ></script>
         </section>
       </div>
     </main>
