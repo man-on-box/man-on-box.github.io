@@ -62,15 +62,17 @@
                 {{ range .Items }}
                 <div data-fade-in>
                   <div
-                    class="{{ $boxClasses }} bg-[url(/img/noise.png)] h-full text-slate-800 shadow hover:shadow-lg lg:hover:scale-105 transition text-center w-40 rounded-xl px-4 py-6 snap-start scroll-m-6"
+                    class="{{ $boxClasses }} bg-[url(/img/noise.png)] h-full text-slate-800 shadow hover:shadow-lg lg:hover:scale-105 transition text-center w-30 sm:w-40 rounded-xl px-4 py-4 sm:py-6 snap-start scroll-m-6"
                   >
                     <span
-                      class="{{ $badgeClasses }} block font-bold mb-8 text-3xl"
+                      class="{{ $badgeClasses }} block font-bold mb-4 sm:mb-8 text-2xl sm:text-3xl"
                       aria-hidden="true"
                     >
                       {{ .Badge }}
                     </span>
-                    <span class="text-xl tracking-tight">{{ .Label }}</span>
+                    <span class="text-sm sm:text-xl tracking-tight"
+                      >{{ .Label }}</span
+                    >
                   </div>
                 </div>
                 {{ end }}
