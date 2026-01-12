@@ -14,8 +14,7 @@
     "date": "2019 - 2025",
     "location": "Barcelona, Spain",
     "description": [
-      "I led the frontend initiative to evolve and build the in-house built experimentation platform and libraries used across European marketplaces with millions of users.",
-      "In addition, I worked across a large tech stack with a focus on React, Typescript, Vite, NodeJS and Golang, and helping and mentoring fellow developers."
+      "I led the frontend initiative to evolve and build the in-house built experimentation platform and libraries used across European marketplaces with millions of users."
     ]
   },
   {
@@ -24,7 +23,7 @@
     "date": "2017 - 2019",
     "location": "Manchester, UK",
     "description": [
-      "I worked on a variety of projects from small brochure sites to large scale web applications. Furthermore, I managed the hosting infrastructure for the company and implemented continuous deployment and testing pipelines."
+      "I worked on a variety of projects from small brochure sites to large scale web applications. I managed the hosting infrastructure for the company and implemented continuous deployment and testing pipelines."
     ]
   },
   {
@@ -33,17 +32,16 @@
     "date": "2015 - 2017",
     "location": "Manchester, UK",
     "description": [
-      "Moving from the Senior Windows team to take lead of the Disaster Recovery team, I was responsible for the design and implementation of the disaster recovery solutions for the company's enterprise clients, as well as architecting and scaling the backup infrastructure to handle petabytes of data distributed across multiple datacenters. I also managed the team and the day to day operations of the department."
+      "Responsible for the design and implementation of the disaster recovery solutions for the company's enterprise clients and architecting and scaling the backup infrastructure to handle petabytes of data distributed across multiple datacenters."
     ]
   },
   {
-    "title": "Windows Server Engineer",
+    "title": "Senior Windows Server Engineer",
     "company": "UKFast",
     "date": "2013 - 2015",
     "location": "Manchester, UK",
     "description": [
-      "My day to day duties consisted of supporting customers via phone or ticket system for their solutions hosted with UK Fast. This included (but was not limited to) support with Windows 2008/2012, Active Directory, Exchange, IIS, VMWare, Hyper-V, MSSQL and basic support on CentOS, Red Hat and Ubuntu servers.",
-      "Within a few months I was then promoted to a Senior Windows Engineer, which involved supporting customers of a higher tier with more complex solutions such as clusters, DAGs, MSSQL High Availability and multi node Exchange environments."
+      "Providing support with Windows 2008/2012, Active Directory, Exchange, IIS, VMWare, Hyper-V, MSSQL and basic support on CentOS, Red Hat and Ubuntu servers."
     ]
   }
 ]
